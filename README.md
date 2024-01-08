@@ -32,6 +32,6 @@
 ## 1.3 Criar a Classe `IDAutoGen`
    - Clique em "Create a Class" novamente e nomeie a classe como `IDAutoGen`.
    - Adicione os seguintes campos:
-     - `className` (String) - Nome da classe para a qual os IDs serão gerados
+     - `nameClass` (String) - Nome da classe para a qual os IDs serão gerados
      - `nextId` (Number) - Próximo ID a ser atribuído
    - Salve as configurações da classe.
