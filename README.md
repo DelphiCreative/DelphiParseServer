@@ -40,6 +40,3 @@
    - Com esses passos, você terá as classes `Item`, `Category` e `IDAutoGen` criadas no Back4App. Lembre-se de ajustar os detalhes conforme necessário, e sua estrutura inicial estará pronta para ser utilizada no desenvolvimento do seu aplicativo.
 
 Este guia cobre a criação das classes no Back4App, proporcionando uma base para a estrutura do seu aplicativo.
-```
-
-Basta copiar esse bloco de texto e colá-lo no seu README do GitHub.
