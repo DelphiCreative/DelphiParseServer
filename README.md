@@ -1,29 +1,31 @@
 # Guia do Projeto
 
-## Introdução
-- Breve introdução ao projeto.
+## Capítulo 1: Estrutura do Banco de Dados
 
-## Estrutura do Banco de Dados
 ### 1. Criar Classes no Back4App
-   - [Criar a Classe `Category`](#criar-a-classe-category)
-   - [Criar a Classe `Item`](#criar-a-classe-item)
-   - [Criar a Classe `IDAutoGen`](#criar-a-classe-idautogen)
-   - [Configurar Campos e Relacionamentos](#configurar-campos-e-relacionamentos)
+   - [1.1 Criar a Classe `Category`](#1.1-criar-a-classe-category)
+   - [1.2 Criar a Classe `Item`](#1.2-criar-a-classe-item)
+   - [1.3 Criar a Classe `IDAutoGen`](#1.3-criar-a-classe-idautogen)
+   - [1.4 Configurar Campos e Relacionamentos](#1.4-configurar-campos-e-relacionamentos)
+
 ### 2. Outras Classes e Estruturas
-   - [Adicionar Outras Classes](#adicionar-outras-classes)
-   - [Relacionar Classes](#relacionar-classes)
+   - [2.1 Adicionar Outras Classes](#2.1-adicionar-outras-classes)
+   - [2.2 Relacionar Classes](#2.2-relacionar-classes)
 
-## Funções de Nuvem
+## Capítulo 2: Funções de Nuvem
+
 ### 1. Adição de Itens ao Cardápio
-   - [Criar Função `addItemToMenu`](#criar-função-additemtomenu)
-   - [Exemplo de JSON para Adicionar Itens](#exemplo-de-json-para-adicionar-itens)
+   - [1.1 Criar Função `addItemToMenu`](#1.1-criar-função-additemtomenu)
+   - [1.2 Exemplo de JSON para Adicionar Itens](#1.2-exemplo-de-json-para-adicionar-itens)
+
 ### 2. Outras Operações
-   - [Função para Atualizar Itens](#função-para-atualizar-itens)
-   - [Função para Remover Itens](#função-para-remover-itens)
+   - [2.1 Função para Atualizar Itens](#2.1-função-para-atualizar-itens)
+   - [2.2 Função para Remover Itens](#2.2-função-para-remover-itens)
 
-## Exemplos Práticos
+## Capítulo 3: Exemplos Práticos
+
 ### 1. Fluxo de Utilização
-   - [Fluxo de Adição de Novo Item](#fluxo-de-utilização-adicionando-um-novo-item-ao-cardápio)
+   - [1.1 Fluxo de Adição de Novo Item](#1.1-fluxo-de-utilização-adicionando-um-novo-item-ao-cardápio)
 
-## Conclusão
-- Recapitulação e considerações finais.
+## Capítulo 4: Conclusão
+   - [4.1 Recapitulação e Considerações Finais](#4.1-recapitulação-e-considerações-finais)
