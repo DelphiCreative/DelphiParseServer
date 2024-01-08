@@ -1,42 +1,29 @@
-**Guia Prático para Criar as Classes `Item`, `Category` e `IDAutoGen` no Back4App:**
+# Guia do Projeto
 
-1. **Acesse o Back4App:**
-   - Faça login na sua conta do Back4App e acesse o painel de controle.
+## Introdução
+- Breve introdução ao projeto.
 
-2. **Criar a Classe `Category`:**
-   - Vá para a seção "Database".
-   - Clique em "Create a Class" e nomeie a classe como `Category`.
-   - Adicione os seguintes campos:
-     - `objectId` (padrão do Back4App)
-     - `name` (String) - Nome da categoria
-     - Outros campos relacionados à categoria, se necessário.
-   - Salve as configurações da classe.
+## Estrutura do Banco de Dados
+### 1. Criar Classes no Back4App
+   - [Criar a Classe `Category`](#criar-a-classe-category)
+   - [Criar a Classe `Item`](#criar-a-classe-item)
+   - [Criar a Classe `IDAutoGen`](#criar-a-classe-idautogen)
+   - [Configurar Campos e Relacionamentos](#configurar-campos-e-relacionamentos)
+### 2. Outras Classes e Estruturas
+   - [Adicionar Outras Classes](#adicionar-outras-classes)
+   - [Relacionar Classes](#relacionar-classes)
 
-3. **Criar a Classe `Item`:**
-   - Clique em "Create a Class" novamente e nomeie a classe como `Item`.
-   - Adicione os seguintes campos:
-     - `objectId` (padrão do Back4App)
-     - `name` (String) - Nome do item
-     - `description` (String) - Descrição do item
-     - `price` (Number) - Preço
-     - `category` (Pointer to `Category`) - Ponteiro para a classe `Category`
-     - `imageURL` (File) - Arquivo de imagem do item
-     - `availability` (Boolean) - Disponibilidade do item
-     - `highlighted` (Boolean) - Destaque do item
-   - Salve as configurações da classe.
+## Funções de Nuvem
+### 1. Adição de Itens ao Cardápio
+   - [Criar Função `addItemToMenu`](#criar-função-additemtomenu)
+   - [Exemplo de JSON para Adicionar Itens](#exemplo-de-json-para-adicionar-itens)
+### 2. Outras Operações
+   - [Função para Atualizar Itens](#função-para-atualizar-itens)
+   - [Função para Remover Itens](#função-para-remover-itens)
 
-4. **Criar a Classe `IDAutoGen`:**
-   - Clique em "Create a Class" novamente e nomeie a classe como `IDAutoGen`.
-   - Adicione os seguintes campos:
-     - `objectId` (padrão do Back4App)
-     - `className` (String) - Nome da classe para a qual os IDs serão gerados
-     - `nextId` (Number) - Próximo ID a ser atribuído
-   - Salve as configurações da classe.
+## Exemplos Práticos
+### 1. Fluxo de Utilização
+   - [Fluxo de Adição de Novo Item](#fluxo-de-utilização-adicionando-um-novo-item-ao-cardápio)
 
-5. **Configurar Campos e Relacionamentos:**
-   - Certifique-se de configurar os campos de cada classe conforme mencionado, estabelecendo os relacionamentos necessários.
-
-6. **Conclusão:**
-   - Com esses passos, você terá as classes `Item`, `Category` e `IDAutoGen` criadas no Back4App. Lembre-se de ajustar os detalhes conforme necessário, e sua estrutura inicial estará pronta para ser utilizada no desenvolvimento do seu aplicativo.
-
-Este guia cobre a criação das classes no Back4App, proporcionando uma base para a estrutura do seu aplicativo.
+## Conclusão
+- Recapitulação e considerações finais.
