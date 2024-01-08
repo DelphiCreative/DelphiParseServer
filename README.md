@@ -11,7 +11,6 @@
    - Vá para a seção "Database".
    - Clique em "Create a Class" e nomeie a classe como `Category`.
    - Adicione os seguintes campos:
-     - `objectId` (padrão do Back4App)
      - `name` (String) - Nome da categoria
      - Outros campos relacionados à categoria, se necessário.
    - Salve as configurações da classe
@@ -19,7 +18,6 @@
 ## 1.2 Criar a Classe `Item`
    - Clique em "Create a Class" novamente e nomeie a classe como `Item`.
    - Adicione os seguintes campos:
-     - `objectId` (padrão do Back4App)
      - `name` (String) - Nome do item
      - `description` (String) - Descrição do item
      - `price` (Number) - Preço
@@ -32,7 +30,6 @@
 ## 1.3 Criar a Classe `IDAutoGen`
    - Clique em "Create a Class" novamente e nomeie a classe como `IDAutoGen`.
    - Adicione os seguintes campos:
-     - `objectId` (padrão do Back4App)
      - `className` (String) - Nome da classe para a qual os IDs serão gerados
      - `nextId` (Number) - Próximo ID a ser atribuído
    - Salve as configurações da classe.
