@@ -25,6 +25,8 @@
      - `imageURL` (File) - Arquivo de imagem do item
      - `availability` (Boolean) - Disponibilidade do item
      - `highlighted` (Boolean) - Destaque do item
+     - `deletedAt` (Date) - Data de exclusão do item (campo opcional)
+     - `itemId` (Number) - Identificador único do item
    - Salve as configurações da classe.
 
 ## 1.3 Criar a Classe `IDAutoGen`
