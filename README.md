@@ -38,22 +38,21 @@
 
 ## Capítulo 2: Descrição das Funções do main.js
 
-1. **`Parse.Cloud.define("hello", (request) => {...})`**: Retorna o parâmetro 'nome' enviado na requisição.
-2. **`Parse.Cloud.define("createOrUpdateItem", async (req) => {...})`**: Gerencia a criação ou atualização de um item, verificando se um item já existe com base no ID fornecido e atualizando ou criando um novo item.
-3. **`Parse.Cloud.define("createOrUpdateItems", async (req) => {...})`**: Permite a criação ou atualização de vários itens simultaneamente.
-4. **`async function getOrCreateItemId(itemId) {...}`**: Obtém ou cria um novo ID para um item, gerando um novo se não for fornecido.
-5. **`async function getNextId(className) {...}`**: Obtém o próximo ID disponível para uma classe específica, incrementando o valor de ID na classe `IDAutoGen`.
-6. **`async function findOrCreateObject(className, fieldName, fieldValue) {...}`**: Busca ou cria um novo objeto em uma classe específica com base em um campo e valor fornecidos.
-7. **`function maskSensitiveData(req) {...}`**: Usada para mascarar dados sensíveis em requisições, como IDs de aplicativos e chaves de API.
+1. **`Parse.Cloud.define("createOrUpdateItem", async (req) => {...})`**: Gerencia a criação ou atualização de um item, verificando se um item já existe com base no ID fornecido e atualizando ou criando um novo item.
+2. **`Parse.Cloud.define("createOrUpdateItems", async (req) => {...})`**: Permite a criação ou atualização de vários itens simultaneamente.
+3. **`async function getOrCreateItemId(itemId) {...}`**: Obtém ou cria um novo ID para um item, gerando um novo se não for fornecido.
+4. **`async function getNextId(className, receivedId) {...}`**: Obtém o próximo ID disponível para uma classe específica, incrementando o valor de ID na classe `IDAutoGen`.
+5. **`async function findOrCreateObject(className, fieldName, fieldValue) {...}`**: Busca ou cria um novo objeto em uma classe específica com base em um campo e valor fornecidos.
+6. **`function maskSensitiveData(req) {...}`**: Usada para mascarar dados sensíveis em requisições, como IDs de aplicativos e chaves de API.
 
 ### Exemplo de JSON para `createOrUpdateItem`
 ```json
 {
-    "itemId": 123,
-    "name": "Nome do Item",
-    "description": "Descrição do Item",
-    "price": 99.99,
-    "category": "CategoriaID",
+    "itemId": 1,
+    "name": "Mussarela",
+    "description": "Mussarela, tomate e orégano",
+    "price": 34.90,
+    "category": "Pizzas",
     "availability": true,
     "highlighted": false
 }
@@ -61,24 +60,27 @@
 
 ### Exemplo de JSON para `createOrUpdateItems`
 ```json
-[
-    {
-        "itemId": 123,
-        "name": "Nome do Item 1",
-        "description": "Descrição do Item 1",
-        "price": 99.99,
-        "category": "CategoriaID1",
+{    
+  "items":
+	[
+	  {
+        "itemId": 2,
+        "name": "X-Bacon",
+        "description": "Carne bovina, queijo, bacon, tomate, cebola, alface, catchup e maionese",
+        "price": 19.50,
+        "category": "Lanches",
         "availability": true,
         "highlighted": false
     },
     {
-        "itemId": 124,
-        "name": "Nome do Item 2",
-        "description": "Descrição do Item 2",
-        "price": 199.99,
-        "category": "CategoriaID2",
+        "itemId": 3,
+        "name": "Batata",
+        "description": "Batata, queijo e bacon",
+        "price": 30.00,
+        "category": "Porções",
         "availability": false,
         "highlighted": true
     }
-]
+	]
+}
 ```
