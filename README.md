@@ -60,27 +60,36 @@
 
 ### Exemplo de JSON para `createOrUpdateItems`
 ```json
-{    
-  "items":
-	[
-	  {
-        "itemId": 2,
-        "name": "X-Bacon",
-        "description": "Carne bovina, queijo, bacon, tomate, cebola, alface, catchup e maionese",
-        "price": 19.50,
-        "category": "Lanches",
-        "availability": true,
-        "highlighted": false
+{
+  "items": [
+    {
+      "itemId": 2,
+      "name": "X-Bacon",
+      "description": "Carne bovina, queijo, bacon, tomate, cebola, alface, catchup e maionese",
+      "price": 19.50,
+      "category": "Lanches",
+      "availability": true,
+      "highlighted": false
     },
     {
-        "itemId": 3,
-        "name": "Batata",
-        "description": "Batata, queijo e bacon",
-        "price": 30.00,
-        "category": "Porções",
-        "availability": false,
-        "highlighted": true
+      "itemId": 3,
+      "name": "Batata",
+      "description": "Batata, queijo e bacon",
+      "price": 30.00,
+      "category": "Porções",
+      "availability": false,
+      "highlighted": true
+    },
+    {
+      "itemId": 6,
+      "name": "Pizza de Pepperoni",
+      "description": "Mussarela, molho de tomate, pepperoni e orégano",
+      "price": 40.00,
+      "category": "Pizzas",
+      "availability": true,
+      "highlighted": true
     }
-	]
+  ]
 }
+
 ```
