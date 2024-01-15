@@ -35,3 +35,61 @@
      - `nameClass` (String) - Nome da classe para a qual os IDs serão gerados
      - `nextId` (Number) - Próximo ID a ser atribuído
    - Salve as configurações da classe.
+
+## Capítulo 2: Descrição das Funções do main.js
+
+1. **`Parse.Cloud.define("createOrUpdateItem", async (req) => {...})`**: Gerencia a criação ou atualização de um item, verificando se um item já existe com base no ID fornecido e atualizando ou criando um novo item.
+2. **`Parse.Cloud.define("createOrUpdateItems", async (req) => {...})`**: Permite a criação ou atualização de vários itens simultaneamente.
+3. **`async function getOrCreateItemId(itemId) {...}`**: Obtém ou cria um novo ID para um item, gerando um novo se não for fornecido.
+4. **`async function getNextId(className, receivedId) {...}`**: Obtém o próximo ID disponível para uma classe específica, incrementando o valor de ID na classe `IDAutoGen`.
+5. **`async function findOrCreateObject(className, fieldName, fieldValue) {...}`**: Busca ou cria um novo objeto em uma classe específica com base em um campo e valor fornecidos.
+6. **`function maskSensitiveData(req) {...}`**: Usada para mascarar dados sensíveis em requisições, como IDs de aplicativos e chaves de API.
+
+### Exemplo de JSON para `createOrUpdateItem`
+```json
+{
+    "itemId": 1,
+    "name": "Mussarela",
+    "description": "Mussarela, tomate e orégano",
+    "price": 34.90,
+    "category": "Pizzas",
+    "availability": true,
+    "highlighted": false
+}
+```
+
+### Exemplo de JSON para `createOrUpdateItems`
+```json
+{
+  "items": [
+    {
+      "itemId": 2,
+      "name": "X-Bacon",
+      "description": "Carne bovina, queijo, bacon, tomate, cebola, alface, catchup e maionese",
+      "price": 19.50,
+      "category": "Lanches",
+      "availability": true,
+      "highlighted": false
+    },
+    {
+      "itemId": 3,
+      "name": "Batata",
+      "description": "Batata, queijo e bacon",
+      "price": 30.00,
+      "category": "Porções",
+      "availability": false,
+      "highlighted": true
+    },
+    {
+      "itemId": 6,
+      "name": "Pizza de Pepperoni",
+      "description": "Mussarela, molho de tomate, pepperoni e orégano",
+      "price": 40.00,
+      "category": "Pizzas",
+      "availability": true,
+      "highlighted": true
+    }
+  ]
+}
+
+```
