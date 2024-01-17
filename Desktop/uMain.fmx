@@ -1,0 +1,1115 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 617
+  ClientWidth = 1075
+  Fill.Kind = Solid
+  StyleBook = StyleBook1
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Rectangle2: TRectangle
+    Align = Left
+    Fill.Color = claWhite
+    Size.Width = 305.000000000000000000
+    Size.Height = 617.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Color = claWhite
+    object Layout1: TLayout
+      Align = Client
+      Size.Width = 305.000000000000000000
+      Size.Height = 617.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object Rectangle1: TRectangle
+        Align = Left
+        Fill.Color = claSteelblue
+        Size.Width = 33.000000000000000000
+        Size.Height = 617.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = claSteelblue
+      end
+      object Layout2: TLayout
+        Tag = 1
+        Align = Contents
+        Size.Width = 305.000000000000000000
+        Size.Height = 617.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object RoundRect2: TRoundRect
+          Tag = 1
+          Align = Top
+          Corners = []
+          Fill.Color = claSteelblue
+          Margins.Left = 10.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 92.000000000000000000
+          Size.Width = 295.000000000000000000
+          Size.Height = 42.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = claSteelblue
+          Stroke.Thickness = 0.000000000000000000
+          OnClick = rctMenuDiningClick
+          OnMouseEnter = RoundRect1MouseLeave
+          OnMouseLeave = RoundRect1MouseLeave
+          object SkSvg2: TSkSvg
+            Align = Left
+            Margins.Left = 10.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Position.X = 10.000000000000000000
+            Position.Y = 10.000000000000000000
+            Size.Width = 50.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            Svg.OverrideColor = claWhite
+            Svg.Source = 
+              '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" f' +
+              'ill="currentColor" class="bi bi-people" viewBox="0 0 16 16">'#13#10'  ' +
+              '<path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261' +
+              '.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.28' +
+              '2 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l' +
+              '-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 ' +
+              '0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88' +
+              ' 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1' +
+              ' 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-' +
+              '.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.1' +
+              '64-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 ' +
+              '1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/>'#13#10'</sv' +
+              'g>'
+          end
+          object SkLabel2: TSkLabel
+            Align = Client
+            Size.Width = 235.000000000000000000
+            Size.Height = 42.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, Size, Style]
+            TextSettings.FontColor = claWhite
+            Words = <
+              item
+                Text = 'Clientes'
+              end>
+          end
+        end
+        object RoundRect3: TRoundRect
+          Tag = 2
+          Align = Top
+          Corners = []
+          Fill.Color = claSteelblue
+          Margins.Left = 10.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 176.000000000000000000
+          Size.Width = 295.000000000000000000
+          Size.Height = 42.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = claSteelblue
+          Stroke.Thickness = 0.000000000000000000
+          OnClick = rctMenuDiningClick
+          OnMouseEnter = RoundRect1MouseLeave
+          object SkSvg3: TSkSvg
+            Align = Left
+            Margins.Left = 10.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Position.X = 10.000000000000000000
+            Position.Y = 10.000000000000000000
+            Size.Width = 50.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            Svg.OverrideColor = claWhite
+            Svg.Source = 
+              '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" f' +
+              'ill="currentColor" class="bi bi-bar-chart-line" viewBox="0 0 16 ' +
+              '16">'#13#10'  <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 ' +
+              '0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3' +
+              'h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7' +
+              'H7v7h2zm-5 0v-3H2v3h2z"/>'#13#10'</svg>'
+          end
+          object SkLabel3: TSkLabel
+            Align = Client
+            Size.Width = 235.000000000000000000
+            Size.Height = 42.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, Size, Style]
+            TextSettings.FontColor = claWhite
+            Words = <
+              item
+                Text = 'DashBoard'
+              end>
+          end
+        end
+        object RoundRect5: TRoundRect
+          Tag = 3
+          Align = Top
+          Corners = []
+          Fill.Color = claSteelblue
+          Margins.Left = 10.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 260.000000000000000000
+          Size.Width = 295.000000000000000000
+          Size.Height = 42.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = claSteelblue
+          Stroke.Thickness = 0.000000000000000000
+          OnClick = rctMenuDiningClick
+          OnMouseEnter = RoundRect1MouseLeave
+          object SkSvg4: TSkSvg
+            Align = Left
+            Margins.Left = 10.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Position.X = 10.000000000000000000
+            Position.Y = 10.000000000000000000
+            Size.Width = 50.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            Svg.OverrideColor = claWhite
+            Svg.Source = 
+              '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" f' +
+              'ill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">'#13#10' ' +
+              ' <path d="M2 2h2v2H2V2Z"/>'#13#10'  <path d="M6 0v6H0V0h6ZM5 1H1v4h4V1' +
+              'ZM4 12H2v2h2v-2Z"/>'#13#10'  <path d="M6 10v6H0v-6h6Zm-5 1v4h4v-4H1Zm1' +
+              '1-9h2v2h-2V2Z"/>'#13#10'  <path d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0' +
+              'h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0' +
+              ' 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0' +
+              'h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Z' +
+              'm-4-1v1h1v-2H7v1h2Z"/>'#13#10'  <path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v' +
+              '-1h2v-1h1Z"/>'#13#10'</svg>'
+          end
+          object SkLabel4: TSkLabel
+            Align = Client
+            Size.Width = 235.000000000000000000
+            Size.Height = 42.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, Size, Style]
+            TextSettings.FontColor = claWhite
+            Words = <
+              item
+                Text = 'Pix'
+              end>
+          end
+        end
+        object RoundRect4: TRoundRect
+          Tag = 4
+          Align = Top
+          Corners = []
+          Fill.Color = claSteelblue
+          Margins.Left = 10.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 218.000000000000000000
+          Size.Width = 295.000000000000000000
+          Size.Height = 42.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = claSteelblue
+          Stroke.Thickness = 0.000000000000000000
+          OnClick = rctMenuDiningClick
+          OnMouseEnter = RoundRect1MouseLeave
+          object SkSvg5: TSkSvg
+            Align = Left
+            Margins.Left = 10.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Position.X = 10.000000000000000000
+            Position.Y = 10.000000000000000000
+            Size.Width = 50.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            Svg.OverrideColor = claWhite
+            Svg.Source = 
+              '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" f' +
+              'ill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">'#13 +
+              #10'  <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 ' +
+              '2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .38' +
+              '4 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3' +
+              '.857z"/>'#13#10'  <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1' +
+              ' 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a' +
+              '1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 ' +
+              '0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm' +
+              '-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 ' +
+              '2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>'#13#10'</svg>'
+          end
+          object SkLabel5: TSkLabel
+            Align = Client
+            Size.Width = 235.000000000000000000
+            Size.Height = 42.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, Size, Style]
+            TextSettings.FontColor = claWhite
+            Words = <
+              item
+                Text = 'Agenda'
+              end>
+          end
+        end
+        object RoundRect6: TRoundRect
+          Tag = 5
+          Align = Top
+          Corners = []
+          Fill.Color = claSteelblue
+          Margins.Left = 10.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 302.000000000000000000
+          Size.Width = 295.000000000000000000
+          Size.Height = 42.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = claWhite
+          Stroke.Thickness = 0.000000000000000000
+          OnClick = rctMenuDiningClick
+          OnMouseEnter = RoundRect1MouseLeave
+          object SkSvg6: TSkSvg
+            Align = Left
+            Margins.Left = 10.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Position.X = 10.000000000000000000
+            Position.Y = 10.000000000000000000
+            Size.Width = 50.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            Svg.OverrideColor = claWhite
+            Svg.Source = 
+              '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" f' +
+              'ill="currentColor" class="bi bi-cloud-arrow-up" viewBox="0 0 16 ' +
+              '16">'#13#10'  <path fill-rule="evenodd" d="M7.646 5.146a.5.5 0 0 1 .70' +
+              '8 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L' +
+              '6.354 7.854a.5.5 0 1 1-.708-.708l2-2z"/>'#13#10'  <path d="M4.406 3.34' +
+              '2A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16' +
+              ' 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 1' +
+              '1.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723' +
+              ' 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.4' +
+              '45.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.9' +
+              '06C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.' +
+              '5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>'#13#10'<' +
+              '/svg>'
+          end
+          object SkLabel6: TSkLabel
+            Align = Client
+            Size.Width = 235.000000000000000000
+            Size.Height = 42.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, Size, Style]
+            TextSettings.FontColor = claWhite
+            Words = <
+              item
+                Text = 'Sincronizar'
+              end>
+          end
+        end
+        object RoundRect1: TRoundRect
+          Align = Top
+          Corners = []
+          Fill.Color = claSteelblue
+          Margins.Left = 10.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 50.000000000000000000
+          Size.Width = 295.000000000000000000
+          Size.Height = 42.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = claSteelblue
+          Stroke.Thickness = 0.000000000000000000
+          OnClick = rctMenuDiningClick
+          OnMouseEnter = RoundRect1MouseLeave
+          object SkSvg7: TSkSvg
+            Align = Left
+            Margins.Left = 10.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Position.X = 10.000000000000000000
+            Position.Y = 10.000000000000000000
+            Size.Width = 50.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            Svg.OverrideColor = claWhite
+            Svg.Source = 
+              '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" f' +
+              'ill="currentColor" class="bi bi-house" viewBox="0 0 16 16">'#13#10'  <' +
+              'path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.' +
+              '708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.' +
+              '207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h' +
+              '-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.' +
+              '5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>'#13#10'</svg>'
+          end
+          object SkLabel7: TSkLabel
+            Align = Client
+            Size.Width = 235.000000000000000000
+            Size.Height = 42.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, Style]
+            TextSettings.FontColor = claWhite
+            Words = <
+              item
+                Text = 'Home'
+              end>
+          end
+        end
+        object rctBotton: TRoundRect
+          Align = Top
+          Corners = []
+          Fill.Color = claSteelblue
+          Margins.Left = 10.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 428.000000000000000000
+          Size.Width = 295.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = claSteelblue
+          Stroke.Thickness = 0.000000000000000000
+          OnMouseEnter = RoundRect1MouseLeave
+        end
+        object RoundRect7: TRoundRect
+          Align = Client
+          Corners = []
+          Fill.Color = claSteelblue
+          Margins.Left = 10.000000000000000000
+          Size.Width = 295.000000000000000000
+          Size.Height = 139.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = claSteelblue
+          Stroke.Thickness = 0.000000000000000000
+          OnMouseEnter = RoundRect1MouseLeave
+        end
+        object RoundRect8: TRoundRect
+          Tag = 5
+          Align = Top
+          Corners = []
+          Fill.Color = claSteelblue
+          Margins.Left = 10.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 386.000000000000000000
+          Size.Width = 295.000000000000000000
+          Size.Height = 42.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = claWhite
+          Stroke.Thickness = 0.000000000000000000
+          OnClick = rctMenuDiningClick
+          OnMouseEnter = RoundRect1MouseLeave
+          object SkSvg1: TSkSvg
+            Align = Left
+            Margins.Left = 10.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Position.X = 10.000000000000000000
+            Position.Y = 10.000000000000000000
+            Size.Width = 50.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            Svg.OverrideColor = claWhite
+            Svg.Source = 
+              '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" f' +
+              'ill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">'#13 +
+              #10'  <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1' +
+              ' 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>'#13#10'  <path d="m2.1' +
+              '65 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0' +
+              ' 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 ' +
+              '3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10' +
+              '.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 ' +
+              '0 .693-.125zm.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 ' +
+              '8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 ' +
+              '0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a' +
+              '10.97 10.97 0 0 0 .398-2"/>'#13#10'</svg>'
+          end
+          object SkLabel1: TSkLabel
+            Align = Client
+            Size.Width = 235.000000000000000000
+            Size.Height = 42.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, Size, Style]
+            TextSettings.FontColor = claWhite
+            Words = <
+              item
+                Text = 'Atendimento'
+              end>
+          end
+        end
+        object RoundRect9: TRoundRect
+          Tag = 5
+          Align = Top
+          Corners = []
+          Fill.Color = claSteelblue
+          Margins.Left = 10.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 344.000000000000000000
+          Size.Width = 295.000000000000000000
+          Size.Height = 42.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = claWhite
+          Stroke.Thickness = 0.000000000000000000
+          OnClick = rctMenuDiningClick
+          OnMouseEnter = RoundRect1MouseLeave
+          object SkSvg8: TSkSvg
+            Align = Left
+            Margins.Left = 10.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Position.X = 10.000000000000000000
+            Position.Y = 10.000000000000000000
+            Size.Width = 50.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            Svg.OverrideColor = claWhite
+            Svg.Source = 
+              '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" f' +
+              'ill="currentColor" class="bi bi-shield-lock" viewBox="0 0 16 16"' +
+              '>'#13#10'  <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 ' +
+              '0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0' +
+              ' 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.' +
+              '55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.' +
+              '118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.5' +
+              '27-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.21' +
+              '3-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.55' +
+              '2.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.5' +
+              '6c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.4' +
+              '77-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7' +
+              '.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.2' +
+              '4a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1' +
+              '.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.' +
+              '456 62.456 0 0 1 5.072.56z"/>'#13#10'  <path d="M9.5 6.5a1.5 1.5 0 0 1' +
+              '-1 1.415l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595' +
+              'l.384-1.99a1.5 1.5 0 1 1 2-1.415z"/>'#13#10'</svg>'
+          end
+          object SkLabel8: TSkLabel
+            Align = Client
+            Size.Width = 235.000000000000000000
+            Size.Height = 42.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, Size, Style]
+            TextSettings.FontColor = claWhite
+            Words = <
+              item
+                Text = 'Seguran'#231'a'
+              end>
+          end
+        end
+        object rctTop: TRoundRect
+          Align = Top
+          Corners = []
+          Fill.Color = claSteelblue
+          Margins.Left = 10.000000000000000000
+          Position.X = 10.000000000000000000
+          Size.Width = 295.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = claSteelblue
+          Stroke.Thickness = 0.000000000000000000
+          OnMouseEnter = RoundRect1MouseLeave
+        end
+        object rctMenuDining: TRoundRect
+          Align = Top
+          Corners = []
+          Fill.Color = claSteelblue
+          Margins.Left = 10.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 134.000000000000000000
+          Size.Width = 295.000000000000000000
+          Size.Height = 42.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = claSteelblue
+          Stroke.Thickness = 0.000000000000000000
+          OnClick = rctMenuDiningClick
+          OnMouseEnter = RoundRect1MouseLeave
+          OnMouseLeave = RoundRect1MouseLeave
+          object lblMenuDining: TSkLabel
+            Align = Client
+            Size.Width = 237.000000000000000000
+            Size.Height = 42.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, Size, Style]
+            TextSettings.FontColor = claWhite
+            Words = <
+              item
+                Text = 'Card'#225'pio'
+              end>
+          end
+          object imgMenuDining: TImage
+            MultiResBitmap.Height = 64
+            MultiResBitmap.Width = 64
+            MultiResBitmap = <
+              item
+                Width = 64
+                Height = 64
+                PNG = {
+                  89504E470D0A1A0A0000000D4948445200000040000000400806000000AA6971
+                  DE0000000473424954080808087C08648800000AB449444154789CED9BD973DD
+                  6519C73FEF497A92364D8014D262A1D2524A4BB11491CAA26CB229B229E232EA
+                  80DEC88C338EFE05CCB85CC895177AE5C8953A2AAB1B8C50A52C4544D9A11B14
+                  680AB44D6869DAA4CD72F2F5E2FBFC9A9393B3653921E3F89DF94DCE3939BFDF
+                  FB3CCFFBECCF7B127300929A80D3808B80F5712D057A806F033B534A238D58BB
+                  B9110F9D025601D70237010B811160140BE1D3C05160572316CE35E2A153C410
+                  D00B3C0FFC0D78062800D7002B424BFE3721A95952A7A415925A2525499748BA
+                  4FD26E4977483ABE116BCF150D280007816E6030A5246007704FFCFF93C0C71B
+                  B1F09C10404A4929A5424A69389807D80FBC08BC8A7DC485925A24A5995C7B4E
+                  08A01C524A83C0BBC023D859AF07CE04F233B9CE9C1540A01FF813F0160E93D7
+                  006D33A905735D00C3C09BC00B80801B801381198B080DCD0324B500AB31D12D
+                  D378543BCE0B4E07BE026C9374689AE40D02871A9D082D04BE88D5B7751ACFE9
+                  0416C5DF9B80F7B0794C074781BE19F5A8A590741AB011588C091E68E47A93C0
+                  02A00D689D8D5438073C05DC8B33BCB980ABB1665E3D5BB5C011605F4AE9AD59
+                  5AAF2A24EDC334CDF928D070CC9606CC07BAC227CC0574619AF8BF136CF04287
+                  80DF0267001F0596E37C6007B0AFC16B97A22BE818C4C9D5DBC0FE460BE030F6
+                  FE2703E7039F0396008F01FF6AF0DAA5D88085B00778087896460B200A9AE781
+                  E725F5016B800EE09F29A57B1BB976292409B81EEFFEC694D29330BB516018FB
+                  813C1F4E2BAE193BBE2341CBB10F670BEF007F057603AFCFE2BA44F5380FA7E3
+                  03B8E708CCAE007A81CDD801BE338BEB82F9CC346F80C96840482F8FBD770B96
+                  64AEE89A2CFA704D3F1F5778C3D8331F058A3B4233893C63C5583FF50AA04875
+                  CEC43DB9738115B832EBC0B1742AE8C782781F78033BCAE780AD92461A208456
+                  BC79A3D46302C178176E435D8A7B724BB0133918D77EA69E48093735DA804F01
+                  9FC0E1691BB049D28BB876982941B4C625AA694030DE849B18170297001F8B9B
+                  DEC30E6C17F001F6A6539DD6641EF9786019700ACE1556C6FB65C0D392B60185
+                  191044268051CCCB440D2852F7A5C0ADC07538857D09F823F00F60474A69B4DC
+                  0A717FA611AA97E818789C015C06DC085C81F3855381BB8177250D633B6EC782
+                  13DEC521BC114395E80AB45087063405F377E219DD3EE02E9C35ED058ED45864
+                  1E633EA13F88AB89945241D24EAC617FC782FF12F0359C3EDF89356F2DF00D6C
+                  324338A17911D8046CC75A5909A51A305E00B17BABF1CE5F04BC1C8C6F04BA53
+                  4AC392DA252DC352DC97522AEDC99D0E5C15AF1F01B694A324767C55BCDD1EF3
+                  80216048D200D6B67EE0B3C0C5C06DC01FB0D3DC067C043801B7D95663CDF9B7
+                  A4C770E3A55C24A9E903BAB0CD5F8777FE21E0A194D2EEA2879C84F369E1B9DD
+                  A49B929272584B2E8A8F764BEACF342BA5340CBC2169089BD312E0F37862B409
+                  7822E83B3104B1129BCF358C39E9A7241D2AD1D6CA5120767F3D76788BB1DA6F
+                  2C611E1CF6568500CAEDEE1BD89343E58665C2A5E8CA78DF46991239A5D42D69
+                  236EAAFE2068DB053C9A527A153C4F0C415C0FDC82B56F2570007885F11B54D1
+                  048871D34F24BD20E92F9256499A574A547CAF33AE092DEE1868E6E2AA181E25
+                  35495A1457C5FEBEA47992CE94F470D0F6A3F82C15ADD724A943D2E5927E2169
+                  AFA4DF49BAB8E459374B7A40D2EB31803D465F33B00EEF6C3FB6BFBDA18AE310
+                  95DD602582C3EE6A7AFE9452012740A50CB7630D3CE66324ED011E04BE8E93B1
+                  D5D80F0CC57A05A04FD20B585B16E164ED0249DD29A5EC4C416BF07A04189768
+                  E5B0ED2FC15E78537C694A885DC94B5A13577E1263ACCCC76C88D7042D8F61D3
+                  3A39989BA07D29A503C07FB0B0527CEFECA2AFB4E228D74FC926E5F0E8793E0E
+                  353BC223D754F90A48D8AEAF8AAB8D32D962A86EA9FA673E6655BC2668D91EB4
+                  CDAF2480C07BC0E3F1FD95C0B945C26F095EFBB11F388666AC5A07815DA19E19
+                  D6E0290CC003783E3753E88CBF3D459F6D61EC18CC31271A7942370E83CB71BE
+                  310129254518DD0CDC4C4CA3241D65CC04CA0A607110529A48F4616966AFC7A1
+                  9CCD3216671F29624445F73405F3B7C5FBBB8103910B54F33107E27F27517D30
+                  3A8CA3D151E038EC13F650C5049A713E9E756B8AD183E37DF6BA1413F282702E
+                  43544882A6812C741D47F5123C73B08398E90E9C37140B608206B4C58DE3A41F
+                  3B5A2DD9A995174C4098584FEC3C29A5DE7AEEC33B3A8273885A3D88D1A02961
+                  FE123534A0B888990CCADA6C9D383085F5EAA13387D5BE159BF407787333010C
+                  504603C0B67C5EA4A053829BAE0DBBE73C4C632DE4B1F36EC1A6F03E66B8852A
+                  1AF001CE03AEC011612E6229A6B18F921DCC10D9EB222CAC217CAC66006B450B
+                  D69EB23EE0591C5ED663A7B687A9373A661ACD98F1217C60EA25CA448A88F727
+                  E092F91C3C74799531FBCF63C60F534600B7E3D2F356AC3E5FC589C75CC02978
+                  B4B605F83D3E3055CE7136E10DBC0333BC1947A62C319B87A3C800A52690527A
+                  47522F6365E2EE3934C707D33400F4A694F696FC3F8723C395C0177006783F66
+                  7E3F56FF0578A347A86002604F3912377448CA6729F1870549791C6A73415B21
+                  3E6FC24C9D807B02ABF1CC7139EE10DD036C8B264E9EF11A50D609826DE330B6
+                  9575B1D084EC6F96D111B4E4316DFD314B5882FB856BF0C0F552CCE0D3C02F81
+                  A7534A598F216BC0149B40590DD8066CC5F67F17763AD5FA7FB3811C66BE13D3
+                  D68D3BD43F65ECD45921FE773FAE1A7732BE9A4DB84C6EC6CEF3301534A01D4B
+                  7C1437407BA952FBD78184D5F32C2CCCADF1DC5264B5C18AA0A51B7BFB111CBA
+                  4EC4A97A3B66F8001EA26CC5317E170E77DB813D29A5D2523EF301F3082DA282
+                  067431768AE3DE78E8D149B33D8684EB71E11EFF16DCB07CBFE43BEDD87EBB70
+                  CEFE40AC3D8C193E0DF85ED0D68999BF0FEF7C2F16D640956E756914A8E8033A
+                  E33A04FC1A7873BAC308492FE39DBC036BD356E0F18CD8E831AC04BE8C77E771
+                  E0E7B8A81A8DD8BE1CF8164E708E4F29F5E1C668BDC87C40160526F880ACB028
+                  CEB147676824B5136BD34BB8EB7403705C842EB0DADF82EDFA19E0CF04F370AC
+                  C5564CEC54EA951CF601953540D2069C41656DE5CB2595B3D7C92253F11EBCD3
+                  1B70A3E29EE8E89E8F1B2E4D98D165C0B525F5C1E2A06909B056D29BC0D6E81D
+                  D44BC302CCF42065C66CCDC037712C3D154BEB16A67F0E37431376640B71E97C
+                  131EBA64B5C75AAC966B70AD5F8AB6B8F754E072EC187F46FD0E3A338151C67E
+                  89320ECDC077B0C3EBC7BB75569D0F9F0C06F04E9C8F8718E7E0D4757FACBD34
+                  AE72E8897B2FC03EE15794E92A5740E60447A8E0D49BF12E35FA2C6F0EF80CF0
+                  7D2CF00EDC63FC212EC66A75A2B3B3BDAB6A7CAFDCBA59C3A7A200A0C16779C3
+                  A33F81C3DD7771C5B919CF1EF7D6FA5164F1D9DE4922D380AA0228604935EC77
+                  79D1B1EDC6D5DC2958AD37A594EA3D2BD484692C50C7F0A5085922545500FD38
+                  E9689794AB31029F32524AFD925E037ECC58ED51131136DBB1039C50CED64016
+                  062B0A2087B3B4C5D8232F288AD38D4001AB7F5FBCAE8AA272776DD0B89DE2C1
+                  666DD4650277E3030957C467AF483A489D071CA6831A3DC13C0E8D6763DA7AB0
+                  A31E92B40ED71AB536EB24EC770E52217436030FE3DAFA4AEC6DD751728EE643
+                  42D6B2CF06378F024FE2ACEE323CD22B3B252AC2029C873C47851324CD29A5B7
+                  25FD06C7E4DBE3C10B69A053AC1305EC275EC3EDB087B1F92CC7C7646EA4BE1F
+                  5116306F656710FF05966B7258FB4E293E0000000049454E44AE426082}
+                FileName = 'C:\Users\diego\Downloads\cardapio.png'
+              end>
+            Align = Left
+            Margins.Left = 20.000000000000000000
+            Margins.Top = 7.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Margins.Bottom = 7.000000000000000000
+            Position.X = 20.000000000000000000
+            Position.Y = 7.000000000000000000
+            Size.Width = 28.000000000000000000
+            Size.Height = 28.000000000000000000
+            Size.PlatformDefault = False
+          end
+        end
+      end
+    end
+  end
+  object TabControl1: TTabControl
+    Position.X = 313.000000000000000000
+    Size.Width = 806.000000000000000000
+    Size.Height = 730.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'tabControlStyleWithoutBorder'
+    TabIndex = 0
+    TabOrder = 2
+    TabPosition = None
+    Sizes = (
+      806s
+      730s
+      806s
+      730s)
+    object TabItem1: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem1'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object Rectangle7: TRectangle
+        Fill.Color = claWhite
+        Position.X = 25.000000000000000000
+        Position.Y = 80.000000000000000000
+        Size.Width = 709.000000000000000000
+        Size.Height = 506.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = claWhite
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        object ShadowEffect1: TShadowEffect
+          Distance = 3.000000000000000000
+          Direction = 45.000000000000000000
+          Softness = 0.300000011920929000
+          Opacity = 0.300000011920929000
+          ShadowColor = claBlack
+        end
+        object Layout3: TLayout
+          Align = Client
+          Margins.Top = 10.000000000000000000
+          Size.Width = 709.000000000000000000
+          Size.Height = 496.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          object lblName: TLabel
+            StyledSettings = [Family, Size, Style]
+            Position.X = 32.000000000000000000
+            Position.Y = 69.000000000000000000
+            TextSettings.FontColor = claSlategray
+            Text = 'Nome do item:'
+            TabOrder = 5
+          end
+          object edtName: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            StyleLookup = 'EditstyleWithoutBorder'
+            TabOrder = 0
+            Text = 'Mussarela'
+            Position.X = 32.000000000000000000
+            Position.Y = 86.000000000000000000
+            Size.Width = 297.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object lblDescription: TLabel
+            StyledSettings = [Family, Size, Style]
+            Position.X = 32.000000000000000000
+            Position.Y = 121.000000000000000000
+            TextSettings.FontColor = claSlategray
+            Text = 'Descri'#231#227'o do item:'
+            TabOrder = 6
+          end
+          object lblPrice: TLabel
+            StyledSettings = [Family, Size, Style]
+            Position.X = 337.000000000000000000
+            Position.Y = 69.000000000000000000
+            TextSettings.FontColor = claSlategray
+            Text = 'Pre'#231'o:'
+            TabOrder = 7
+          end
+          object lblCategory: TLabel
+            StyledSettings = [Family, Size, Style]
+            Position.X = 146.000000000000000000
+            Position.Y = 20.000000000000000000
+            TextSettings.FontColor = claSlategray
+            Text = 'Categoria:'
+            TabOrder = 8
+          end
+          object cmbCategory: TComboBox
+            Items.Strings = (
+              'LANCHES'
+              'PAST'#201'IS'
+              'PIZZAS'
+              'POR'#199#213'ES'
+              '')
+            ItemIndex = 2
+            Position.X = 146.000000000000000000
+            Position.Y = 38.000000000000000000
+            Size.Width = 183.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'EditstyleWithoutBorder'
+            TabOrder = 1
+          end
+          object chkAvailability: TCheckBox
+            StyledSettings = [Family, Size, Style]
+            Position.X = 337.000000000000000000
+            Position.Y = 38.000000000000000000
+            Size.Width = 129.000000000000000000
+            Size.Height = 19.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            Text = 'Dispon'#237'vel no App'
+            TextSettings.FontColor = claSlategray
+          end
+          object chkHighlighted: TCheckBox
+            StyledSettings = [Family, Size, Style]
+            Position.X = 337.000000000000000000
+            Position.Y = 17.000000000000000000
+            TabOrder = 3
+            Text = 'Em destaque'
+            TextSettings.FontColor = claSlategray
+          end
+          object lblItemId: TLabel
+            StyledSettings = [Family, Size, Style]
+            Position.X = 32.000000000000000000
+            Position.Y = 19.000000000000000000
+            TextSettings.FontColor = claSlategray
+            Text = 'Identificador:'
+            TabOrder = 9
+          end
+          object edtItemId: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            StyleLookup = 'EditstyleWithoutBorder'
+            TabOrder = 4
+            Position.X = 32.000000000000000000
+            Position.Y = 38.000000000000000000
+          end
+          object edtDescription: TMemo
+            Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+            DataDetectorTypes = []
+            Lines.Strings = (
+              'Mussarela, tomate, azeitona e or'#233'gano')
+            Position.X = 32.000000000000000000
+            Position.Y = 138.000000000000000000
+            Size.Width = 441.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'EditstyleWithoutBorder'
+            TabOrder = 10
+            Viewport.Width = 433.000000000000000000
+            Viewport.Height = 44.000000000000000000
+          end
+          object Button1: TButton
+            Position.X = 32.000000000000000000
+            Position.Y = 212.000000000000000000
+            Size.Width = 113.000000000000000000
+            Size.Height = 32.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'listitembutton'
+            TabOrder = 11
+            Text = 'Salvar altera'#231#245'es'
+            OnClick = Button1Click
+          end
+          object Memo1: TMemo
+            Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+            DataDetectorTypes = []
+            Position.X = 32.000000000000000000
+            Position.Y = 264.000000000000000000
+            Size.Width = 649.000000000000000000
+            Size.Height = 175.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 13
+            Viewport.Width = 645.000000000000000000
+            Viewport.Height = 171.000000000000000000
+          end
+          object edtPrice: TNumberBox
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            StyleLookup = 'EditstyleWithoutBorder'
+            TabOrder = 14
+            Cursor = crIBeam
+            ValueType = Float
+            KeyboardType = NumbersAndPunctuation
+            Position.X = 337.000000000000000000
+            Position.Y = 86.000000000000000000
+            Size.Width = 136.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object Str: TRectangle
+            Fill.Color = claWhite
+            Padding.Left = 10.000000000000000000
+            Padding.Top = 10.000000000000000000
+            Padding.Right = 10.000000000000000000
+            Padding.Bottom = 10.000000000000000000
+            Position.X = 493.000000000000000000
+            Position.Y = 11.000000000000000000
+            Size.Width = 193.000000000000000000
+            Size.Height = 177.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Color = claSlategray
+            Stroke.Thickness = 2.000000000000000000
+            XRadius = 2.000000000000000000
+            YRadius = 2.000000000000000000
+            object Image3: TImage
+              MultiResBitmap.Height = 80
+              MultiResBitmap.Width = 80
+              MultiResBitmap = <
+                item
+                  Width = 80
+                  Height = 80
+                  PNG = {
+                    89504E470D0A1A0A0000000D49484452000000500000005008060000008E11F2
+                    AD0000000473424954080808087C0864880000087D49444154789CED9CDB6F14
+                    D71DC73F6766AFF65E7CC53730763160889444D052A0A5285204E1217D83FFA0
+                    8AD236AA94566A685509A9529B2A52FBD04851FB1EA982BE5515D087962601E2
+                    361121528C6383B1631BD6F67ABDF79DBDCDE9C31862169BDDD959DB0C9D8F64
+                    6967F7CCF99DF39DDF39F3FB9D3363707070707070707070F87F443CF870F2ED
+                    EB722B1B62372EBF754400285BDD10BBE3AAFCE2D2CF0F6F453B6CC32BBFFBF8
+                    9163C7032DE208681147408B38025AC411D0228E80167104B4C8637160352EDE
+                    79B6139653BB44F542AB703CD0228E80167104B48823A0451C012DE208681147
+                    408B38025AC411D0228E80167104B488E95CB82E04843D10F282CF05AA80B204
+                    AD04C90224F280D9147B23EAAC83860BA82AD0EC0245015D87A2849E0078D50A
+                    C302021EE3AFDD0FB34928946BB3E175415FB07A9DF7D2E0115FB7255382B2DE
+                    987E3EB4D9A88A84806DCDD0EA353E9BC1ABC24018A612D545F4A8B033645CA8
+                    6A750E861FFD4E4A58D660216B7C6E047509E8771957D8E3824209629A711CF0
+                    D4DF105581EE80E189611F34BB0DB1C010355B84B866787335F1D6430868F31B
+                    F546B38FF7215B345FA76901831ED81EFAFAD8AB42D06BDEF05A34BB61771B28
+                    151EEC550DBB1D4DC65C679507C3FC91FABD3093345F97E96BD9D96CDE88192A
+                    C55B4D23C47B12DBEAE89B69015D1B14F83C0DEBDCF5F4CDF42999827923B5B0
+                    C1CE5513F5F4CDF41C18B230DF957458D624C9BCA0DD0F2DBEFAEBDA08EAE9DB
+                    A604D2F932C47246702BA5E16BF7D3902A1877D58D9A1636830D15305732C285
+                    F43A43235D803BCBD0D55C9F374A20A1C15C12A259C9402BF487C5A64E070D17
+                    5062CC25D11CE46A88AB74697863226F78A347AD7E4EBA0091B4E45ED2B8480F
+                    185B84F9B4647FA7B014939AA16102EA12927958CAD59E92AD265B84BBCBD0D1
+                    6C04BB955EA4950D71EE2757F2DC7558CEC1B519C98EB0604F5BFD4177AD5816
+                    B0AC434C932C6BC2729EA9030B9995B9B1195C2A443392B994209A9535A75F52
+                    C25771C9420A7677406F70E30675DD0216CA46FA93C881DEE059275784C93824
+                    F392780EEA8D12B5327C7C5723934E90CB64584CE488A5F268456388F83D2AAD
+                    012FDDAD7E86BA03ECDF116620EC3765C3B480B992919027B58D0F7E435E81CF
+                    05B1AC34352D4829999D8F3139BB402C9E5AB75C5A2B91D64ACC4433FC77220A
+                    C0FEBE20AF1EE8E2F8BE76941A56454C0B3815377B86353C2A740505294D92A8
+                    E1A2CD47137C3E3E4D3AAB01E05255BA3B5BE86C0D110EFA69F27971BB8D6E17
+                    8B25B25A9E442AC7422CC17C34C1E85C8AD1B914EF5F9DE3F597073858B9A453
+                    C1E62CA85A4400219FC0EF86A575BCB15CD6B9F9E534D3F71601F079DD0C0FF6
+                    D1DFD381BACE9DC4EB71E3F5B8690D0518E8EBA45CD699892C313E7D9FD9588E
+                    5F9EBFC5A917B6F1FACB0378D609566D21E003DC2A740705E982249E356E3A00
+                    F942916B37C689A732288AC2DEC15E86FABB7199BC05ABAAC2405F27FDBD1DDC
+                    9E8E706B728E8B3717B8339FE1D7A7870937B91F3BC7963940C023E80E097C2E
+                    41BE50E4834FC688A732783D6E8E1DD8CBF060AF69F156A308C19E811EBE7B70
+                    2F3E8F9BF148869FBE3F4A628D05435B0A0846FAD7E6D319B9394E3A9B231468
+                    E2A543CFD1D6126C988DF67090E387F6130A34311BCBF1AB0B638F95B1AD8000
+                    573E9B66296178DED117F7E0F7353EFD68F27939F2E2EE879E5889ADE6C0D54C
+                    CF27F8626A01555138FCFC50CDE2BD76F0519FF9D3A7D5A3FF269F97432F0CF1
+                    D1A75FA2EB8F96B7A507EA5272E5C614007B067B1B3A6CD7A33D1C64DF377A1F
+                    1E9F3E7F5E853A3C705F47035B552723134BC4D31A3EAF9BA1FEEE4DB33BD4DF
+                    C3D4DC22995C9EC464FF69E02FB6F4C07F7FB100C0F0609FA5BBAD591445B07B
+                    A7E1858A903F061B0EE1C584C66424854B55E9EFD9FCE1B0A3A71D974B45EAF2
+                    E8897746066D27E0E86C0280EECE9675338C8DC4A52A74B5874108A194CB276C
+                    27E0ED481A80CED65095921BC7B6B615DB521CB39D8091580E8070D0DCB25323
+                    09079A0090420EDB2E0E5CCE18CBD1CDFEB537512AE3BC6A542BBF569CD8E437
+                    B6EF24A2DF761E985B590C75A9356C9E6C106ED78A6D49C8B4070E84B7760BFC
+                    69D8805F8DED3CB06965DBAE54AE63E7AA41144B2BB60549DBCD819D412FC95C
+                    894C4EC3E30E3CF67BB5DCB69E5CB8926CCE988705F22BDB79607F8771F74DA4
+                    725BD686443A0B8044DCB29D80CF6D37160E1662892D6BC342CC789050417E64
+                    3B010F0E8611189B47E5463FF05C03A5529948346E6CFD4971D97602F6B4F818
+                    EE0B522A9799892C6DBAFD9948CCB870425EBD74F6C894ED0404F8FE812E00C6
+                    A7EFA337EA69F11AD0759D89A97B0048A9BC0B6BAC0756FE6FA8A7994C56E3F6
+                    74843D033D9B626F623A4246CBA323475B76CDFE156C18075672EBCE2CD1E53A
+                    9E0E37C95222C5D8A4E17D42AA6F5C3873A60C4F5F606F8A936F5FFF33F0039F
+                    C7CDF143FB69F235E875810A725A9E7FFD67947CA108E8EF5D7EEB3B3F7CF09B
+                    AD3D30E4913F11BAFC442B14B9FED90459ED09CFBDD54956CB73EDC6F88A7872
+                    24AF15DE5CFDBBAD3D10E0D46F3EE82C0BCF8742C8BD3E8F9B43CF0FD1DEA04D
+                    A6A5788A91CF6FAF88C798C7E53EF6B79F7D33BABA8CED050443C492E2FEBB02
+                    DF5284C2BE5DBD0CF5F7A03CE9A59327A0EB9289E9FBDCBA3B87D425204714BD
+                    F4EAC55F7C6FB1B2EC332120C0E9DF5FF32734E50F4291AF0134FBBDECDED96B
+                    EC61D4B8F45F2A959989C49898BA47E6E174A0BF97D70A6F5E39F792B6D639CF
+                    8C800F38F9DBEB2F23F823300CC6BA615747986D6D214281269AFD5EDCAE95C7
+                    DB4A25638B329565713949241A7F98DDE8C85121D537FE71F6DBFF7C92BD674E
+                    403036BD5377B69F41113F92BA3C8AA8F1FD512925425E955279F768FEF08573
+                    E744D55CF19914703527DE191954CAE51348714C17EC13C89D12820042CA2442
+                    4C0B29C610F243A4B87CE9EC912933F5FF0F8AD20FC7680D60F5000000004945
+                    4E44AE426082}
+                  FileName = 'C:\Users\diego\Downloads\icons8-add-image-80.png'
+                end>
+              Align = Client
+              Margins.Left = 50.000000000000000000
+              Margins.Top = 50.000000000000000000
+              Margins.Right = 50.000000000000000000
+              Margins.Bottom = 50.000000000000000000
+              Size.Width = 73.000000000000000000
+              Size.Height = 57.000000000000000000
+              Size.PlatformDefault = False
+            end
+            object ImageURL: TImage
+              MultiResBitmap.Height = 80
+              MultiResBitmap.Width = 80
+              MultiResBitmap = <
+                item
+                end>
+              Align = Client
+              Size.Width = 173.000000000000000000
+              Size.Height = 157.000000000000000000
+              Size.PlatformDefault = False
+            end
+          end
+        end
+      end
+      object Label1: TLabel
+        StyledSettings = [Style]
+        Position.X = 25.000000000000000000
+        Position.Y = 55.000000000000000000
+        Size.Width = 208.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Roboto'
+        TextSettings.Font.Size = 18.000000000000000000
+        TextSettings.FontColor = claSlategray
+        Text = 'Cadastro de Item:'
+        TabOrder = 13
+      end
+    end
+    object TabItem2: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem2'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+    end
+  end
+  object StyleBook1: TStyleBook
+    Styles = <
+      item
+      end
+      item
+        Platform = 'Windows 10 Desktop'
+        ResourcesBin = {
+          464D585F5354594C4520322E3501061C746162436F6E74726F6C5374796C6557
+          6974686F7574426F726465720331040616456469747374796C65576974686F75
+          74426F72646572039B090614456469747374796C654C6162656C5374796C6531
+          030F01005450463007544C61796F757400095374796C654E616D65061C746162
+          436F6E74726F6C5374796C65576974686F7574426F7264657205416C69676E07
+          0643656E7465720A53697A652E57696474680500000000000000CA06400B5369
+          7A652E4865696768740500000000000000C606401453697A652E506C6174666F
+          726D44656661756C74080756697369626C6508085461624F726465720235000C
+          5442727573684F626A65637400095374796C654E616D6506107363726F6C6C62
+          61636B67726F756E640B42727573682E436F6C6F720709784646463046304630
+          00000C545374796C654F626A6563740005416C69676E0708436F6E74656E7473
+          0C536F757263654C6F6F6B7570061B57696E646F7773203130204465736B746F
+          707374796C652E706E670A53697A652E57696474680500000000000000CA0640
+          0B53697A652E4865696768740500000000000000C606401453697A652E506C61
+          74666F726D44656661756C74080A536F757263654C696E6B0E010E436170496E
+          736574732E4C6566740500000000000000F002400D436170496E736574732E54
+          6F700500000000000000F002400F436170496E736574732E5269676874050000
+          0000000000F0024010436170496E736574732E426F74746F6D05000000000000
+          00F002400F536F75726365526563742E4C6566740500000000000000C605400E
+          536F75726365526563742E546F700500000000000000C0014010536F75726365
+          526563742E526967687405000000000000009E064011536F7572636552656374
+          2E426F74746F6D0500000000000000A2054000010E436170496E736574732E4C
+          6566740500000000000000B003400D436170496E736574732E546F7005000000
+          00000000B003400F436170496E736574732E52696768740500000000000000B0
+          034010436170496E736574732E426F74746F6D0500000000000000B003400553
+          63616C650500000000000000C0FF3F0F536F75726365526563742E4C65667405
+          000000000000009406400E536F75726365526563742E546F7005000000000000
+          0080024010536F75726365526563742E52696768740500000000000000ED0640
+          11536F75726365526563742E426F74746F6D0500000000000000F4054000010E
+          436170496E736574732E4C6566740500000000000000F003400D436170496E73
+          6574732E546F700500000000000000F003400F436170496E736574732E526967
+          68740500000000000000F0034010436170496E736574732E426F74746F6D0500
+          000000000000F00340055363616C6505000000000000008000400F536F757263
+          65526563742E4C6566740500000000000000C606400E536F7572636552656374
+          2E546F700500000000000000C0024010536F75726365526563742E5269676874
+          05000000000000009E074011536F75726365526563742E426F74746F6D050000
+          0000000000A206400000064F7061717565090000005450463007544C61796F75
+          7400095374796C654E616D650616456469747374796C65576974686F7574426F
+          7264657205416C69676E070643656E7465720A53697A652E5769647468050000
+          0000000000C805400B53697A652E4865696768740500000000000000B0034014
+          53697A652E506C6174666F726D44656661756C7408085461624F72646572020C
+          0012544163746976655374796C654F626A65637400095374796C654E616D6506
+          0A6261636B67726F756E6405416C69676E0708436F6E74656E74730C536F7572
+          63654C6F6F6B7570061B57696E646F7773203130204465736B746F707374796C
+          652E706E670A53697A652E57696474680500000000000000C805400B53697A65
+          2E4865696768740500000000000000B003401453697A652E506C6174666F726D
+          44656661756C74080D416374697665547269676765720707466F63757365640A
+          4163746976654C696E6B0E010E436170496E736574732E4C6566740500000000
+          000000E001400D436170496E736574732E546F700500000000000000E001400F
+          436170496E736574732E52696768740500000000000000E0014010436170496E
+          736574732E426F74746F6D0500000000000000E001400F536F75726365526563
+          742E4C65667405000000000000808507400E536F75726365526563742E546F70
+          0500000000000000A4054010536F75726365526563742E526967687405000000
+          0000000098074011536F75726365526563742E426F74746F6D05000000000000
+          00DC054000010E436170496E736574732E4C6566740500000000000000A00240
+          0D436170496E736574732E546F700500000000000000A002400F436170496E73
+          6574732E52696768740500000000000000A0024010436170496E736574732E42
+          6F74746F6D0500000000000000A00240055363616C650500000000000000C0FF
+          3F0F536F75726365526563742E4C6566740500000000000000C807400E536F75
+          726365526563742E546F700500000000000000F4054010536F75726365526563
+          742E52696768740500000000000000E4074011536F75726365526563742E426F
+          74746F6D0500000000000000A5064000010E436170496E736574732E4C656674
+          0500000000000000E002400D436170496E736574732E546F7005000000000000
+          00E002400F436170496E736574732E52696768740500000000000000E0024010
+          436170496E736574732E426F74746F6D0500000000000000E00240055363616C
+          6505000000000000008000400F536F75726365526563742E4C65667405000000
+          000000808508400E536F75726365526563742E546F700500000000000000A406
+          4010536F75726365526563742E5269676874050000000000000098084011536F
+          75726365526563742E426F74746F6D0500000000000000DC064000000A536F75
+          7263654C696E6B0E010E436170496E736574732E4C6566740500000000000000
+          E001400D436170496E736574732E546F700500000000000000E001400F436170
+          496E736574732E52696768740500000000000000E0014010436170496E736574
+          732E426F74746F6D0500000000000000E001400F536F75726365526563742E4C
+          6566740500000000000000E206400E536F75726365526563742E546F70050000
+          0000000000A4054010536F75726365526563742E526967687405000000000000
+          8083074011536F75726365526563742E426F74746F6D0500000000000000DC05
+          4000010E436170496E736574732E4C6566740500000000000000A002400D4361
+          70496E736574732E546F700500000000000000A002400F436170496E73657473
+          2E52696768740500000000000000A0024010436170496E736574732E426F7474
+          6F6D0500000000000000A00240055363616C650500000000000000C0FF3F0F53
+          6F75726365526563742E4C6566740500000000000000A907400E536F75726365
+          526563742E546F700500000000000000F4054010536F75726365526563742E52
+          696768740500000000000080C5074011536F75726365526563742E426F74746F
+          6D0500000000000000A5064000010E436170496E736574732E4C656674050000
+          0000000000E002400D436170496E736574732E546F700500000000000000E002
+          400F436170496E736574732E52696768740500000000000000E0024010436170
+          496E736574732E426F74746F6D0500000000000000E00240055363616C650500
+          0000000000008000400F536F75726365526563742E4C65667405000000000000
+          00E207400E536F75726365526563742E546F700500000000000000A406401053
+          6F75726365526563742E5269676874050000000000008083084011536F757263
+          65526563742E426F74746F6D0500000000000000DC0640000013546F75636841
+          6E696D6174696F6E2E4C696E6B0E00000007544C61796F757400095374796C65
+          4E616D650607636F6E74656E7405416C69676E0706436C69656E74064C6F636B
+          6564090C4D617267696E732E4C6566740500000000000000C000400B4D617267
+          696E732E546F700500000000000000C000400D4D617267696E732E5269676874
+          0500000000000000C000400E4D617267696E732E426F74746F6D050000000000
+          0000C000400A53697A652E57696474680500000000000000B805400B53697A65
+          2E48656967687405000000000000008003401453697A652E506C6174666F726D
+          44656661756C7408000007544C61796F757400095374796C654E616D65060762
+          7574746F6E7305416C69676E07055269676874064C6F636B6564090B4D617267
+          696E732E546F7005000000000000008000400D4D617267696E732E5269676874
+          05000000000000008000400E4D617267696E732E426F74746F6D050000000000
+          00008000400A506F736974696F6E2E580500000000000000C405400A506F7369
+          74696F6E2E5905000000000000008000400A53697A652E576964746805000000
+          000000000000000B53697A652E48656967687405000000000000009003401453
+          697A652E506C6174666F726D44656661756C740800000C5442727573684F626A
+          65637400095374796C654E616D65060A666F726567726F756E640B4272757368
+          2E436F6C6F720708636C61426C61636B00000C5442727573684F626A65637400
+          095374796C654E616D65060973656C656374696F6E0B42727573682E436F6C6F
+          72070978374632413936464600000B54466F6E744F626A65637400095374796C
+          654E616D650604666F6E74000006544C6162656C00095374796C654E616D6506
+          0670726F6D7074064C6F636B656409074F706163697479050000000000000080
+          FE3F0B5374796C654C6F6F6B75700614456469747374796C654C6162656C5374
+          796C65310756697369626C65080000005450463007544C61796F757400095374
+          796C654E616D650614456469747374796C654C6162656C5374796C653105416C
+          69676E070643656E7465720A53697A652E57696474680500000000000000C805
+          400B53697A652E4865696768740500000000000000B003401453697A652E506C
+          6174666F726D44656661756C74080756697369626C6508085461624F72646572
+          02030005545465787400095374796C654E616D6506047465787405416C69676E
+          0706436C69656E74064C6F636B6564090748697454657374080A53697A652E57
+          696474680500000000000000C805400B53697A652E4865696768740500000000
+          000000B003401453697A652E506C6174666F726D44656661756C7408000000}
+      end>
+    Left = 176
+    Top = 32
+  end
+end
