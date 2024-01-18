@@ -5,7 +5,8 @@ uses
   FMX.Forms,
   uMain in 'uMain.pas' {Form1},
   FMX.Functions in '..\Units\FMX.Functions.pas',
-  FMX.Helpers in '..\Units\FMX.Helpers.pas';
+  FMX.Helpers in '..\Units\FMX.Helpers.pas',
+  AppConfig in '..\Units\AppConfig.pas';
 
 {$R *.res}
 

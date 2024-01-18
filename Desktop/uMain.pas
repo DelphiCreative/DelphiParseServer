@@ -134,6 +134,8 @@ begin
    NewDirectoryPath := TPath.Combine(GetCurrentDir, 'Img');
    ForceDirectories(NewDirectoryPath);
 
+   ImageURL.EnableImagePopup;
+
 end;
 
 procedure TForm1.rctMenuDiningClick(Sender: TObject);

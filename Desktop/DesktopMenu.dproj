@@ -193,6 +193,7 @@
         </DCCReference>
         <DCCReference Include="..\Units\FMX.Functions.pas"/>
         <DCCReference Include="..\Units\FMX.Helpers.pas"/>
+        <DCCReference Include="..\Units\AppConfig.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
