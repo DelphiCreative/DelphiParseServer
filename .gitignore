@@ -90,5 +90,8 @@ Win32/
 Debug/
 Release/
 Win32/
+DesktopTest/
+Units/AppConfig.pas
 
 
+Units/AppConfig.pas

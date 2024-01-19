@@ -3,7 +3,7 @@ unit FMX.Helpers;
 interface
 
 uses
-  FMX.StdCtrls, FMX.Menus, FMX.Dialogs, FMX.Objects, System.SysUtils;
+  FMX.StdCtrls, FMX.Menus, FMX.Dialogs, FMX.Objects, System.SysUtils, System.JSON;
 
 type
   TImageHelper = class helper for TImage
@@ -13,6 +13,12 @@ type
     procedure PopupMenuClick(Sender: TObject);
   public
     procedure EnableImagePopup;
+  end;
+
+type
+  TStringHelper = record helper for string
+    function FindJsonValue(const AKey: string): string;
+    function JsonFormat :string;
   end;
 
 implementation
@@ -76,6 +82,51 @@ begin
     1: RemoveImage;
   end;
 end;
+
+{ TStringHelper }
+
+function TStringHelper.FindJsonValue(const AKey: string): string;
+var
+  StartPos, EndPos: Integer;
+  KeyStartPos, KeyEndPos: Integer;
+  jsonObject: TJSONObject;
+  resultObject: TJSONObject;
+begin
+  Result := '';
+
+  try
+    jsonObject := TJSONObject.ParseJSONValue(Self) as TJSONObject;
+
+    if Assigned(jsonObject) then
+    begin
+      resultObject := jsonObject.GetValue('result') as TJSONObject;
+      if Assigned(resultObject) then
+      begin
+        Result := resultObject.GetValue(AKey).Value;
+      end;
+    end;
+  finally
+    jsonObject.Free;
+  end;
+
+end;
+
+function TStringHelper.JsonFormat :string;
+var
+   jsonObject: TJSONObject;
+begin
+   try
+      try
+        jsonObject := TJSONObject.ParseJSONValue(Self) as TJSONObject;
+        Result := jsonObject.Format;
+      except
+        Result := Self;
+      end;
+   finally
+     jsonObject.Free;
+   end;
+end;
+
 
 end.
 

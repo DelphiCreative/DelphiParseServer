@@ -13,14 +13,14 @@ Parse.Cloud.define("createOrUpdateItem", async (req) => {
     const categoryName = req.params.category;
     const availability = req.params.availability;
     const highlighted = req.params.highlighted;
-    const imagemURL = req.params.imagemURL;    
-
+    const imageURL = req.params.imageURL;    
+    
     if (!name || name === "") {
-        throw "Nome do item é obrigatório";
+        return { error: "Nome do item é obrigatório" };
     }
 
-    if (!price || price === "") {
-        throw "Preço é obrigatório";
+    if (price === undefined || price === null || price === "") {
+        return { error: "Preço é obrigatório" };
     }
 
     const { item, msg } = await getOrCreateItemId(itemId);
@@ -37,9 +37,11 @@ Parse.Cloud.define("createOrUpdateItem", async (req) => {
         item.set("category", category);
     }
 
-    if (imagemURL && file.imagemURL) {
-        const parseFile = new Parse.File(file.name, { base64: file.base64 });
-        item.set('imagemURL', parseFile);
+    if (imageURL && imageURL.name) {
+        const parseFile = new Parse.File(imageURL.name, { base64: imageURL.base64 });
+        item.set('imageURL', parseFile);
+    } else {
+        item.set('imageURL', null); 
     }
 
     await item.save(null, { useMasterKey: true });
@@ -83,7 +85,7 @@ Parse.Cloud.define("createOrUpdateItems", async (req) => {
 
         const { item, msg } = await getOrCreateItemId(itemId);
 
-        item.set("price", parseFloat(price));
+        item.set("price", price === 0 ? 0 : parseFloat(price));
         item.set("name", name);
         item.set("description", description);
         item.set("availability", availability);
@@ -106,6 +108,71 @@ Parse.Cloud.define("createOrUpdateItems", async (req) => {
     return responseJSON;
 });
 
+Parse.Cloud.define("getItemsList", async (req) => {
+    const query = new Parse.Query(Item);
+    query.include("category");
+
+    let page = req.params.page;
+    let limite = req.params.limit;
+    let orderBy = req.params.orderBy;
+    const itemDescription = req.params.description;
+    const categoryName = req.params.category;
+    const itemId = req.params.itemId;
+
+    if (page === undefined || isNaN(page) || page <= 0) {
+        page = 1;
+    }
+
+    if (limite === undefined || isNaN(limite)) {
+        limite = 10;
+    }
+
+    if (orderBy === undefined || orderBy === "") {
+        orderBy = "itemId";
+    }
+
+    query.ascending(orderBy);
+    query.limit(limite);
+    query.skip((page - 1) * limite);
+    
+    if (itemId) {
+        query.equalTo("itemId", itemId);
+    }
+   
+    await applyTextFilter(query, "description", itemDescription);
+    await applyPointerFilter(query, "Category", "name", categoryName);
+
+    const item = await query.find({ useMasterKey: true });
+
+    return item.map((item) => {
+        // Obtém a URL da imagem antes de converter o item para JSON
+        const imageUrl = item.get("imageURL") ? item.get("imageURL").url() : null;
+    
+        // Converte o item para JSON
+        const itemData = item.toJSON();
+    
+        // Seleciona e formata apenas os campos necessários
+        return {
+            itemId: itemData.itemId, // ou objectId, se for o identificador único
+            name: itemData.name,
+            description: itemData.description,
+            price: `R$ ${itemData.price.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+            availability: itemData.availability,
+            highlighted: itemData.highlighted,
+            category: itemData.category ? itemData.category.name : "",
+            imageUrl: imageUrl // URL da imagem formatada
+            // Inclua outros campos necessários aqui
+        };
+    });
+    
+    
+});
+
+
+
+
+
+
 // async Functions
 async function getOrCreateItemId(itemId) {
     let item;
@@ -121,7 +188,8 @@ async function getOrCreateItemId(itemId) {
         queryItem.equalTo("itemId", itemId);
         item = await queryItem.first({ useMasterKey: true });
 
-        if (!item) {            
+        if (!item) {
+            // Chama getNextId com o itemId fornecido para atualizar o próximo ID, se necessário
             await getNextId("Item", itemId);
 
             item = new Item();
@@ -145,7 +213,8 @@ async function getNextId(className, receivedId) {
     }
 
     let nextId = idObject.get("nextId");
-    
+
+    // Atualiza nextId se o receivedId for maior
     if (receivedId && receivedId > nextId) {
         idObject.set("nextId", receivedId + 1);
     } else {
@@ -174,16 +243,69 @@ async function findOrCreateObject(className, fieldName, fieldValue) {
 }
 
 
+// Função para aplicar condição de pesquisa a campos de texto
+async function applyTextFilter(query, field, value) {
+    let fieldWithoutPercent = value;
+
+    if (value) {
+        if (value.endsWith("%") && value.startsWith("%")  ) {
+            // Se o valor terminar com "%", use o operador "contains"
+            fieldWithoutPercent = value.replace(/%/g, ""); // Remove o "%"
+            query.contains(field, fieldWithoutPercent);
+        } else if (value.endsWith("%")) {
+            // Se o valor começar com "%", use o operador "startsWith"
+            fieldWithoutPercent = value.replace(/%/g, ""); // Remove o "%"
+            query.startsWith(field, fieldWithoutPercent);
+        } else {
+            query.equalTo(field, value);
+        }
+    }
+
+    return fieldWithoutPercent;
+}
+
+async function applyPointerFilter(query, className, fieldName, filterValue) {
+    if (!filterValue) return;
+
+    let filterValueWithoutPercent = filterValue;
+    const PointerClass = Parse.Object.extend(className);
+    const pointerQuery = new Parse.Query(PointerClass);
+
+    if (filterValue.startsWith("%") && filterValue.endsWith("%")) {
+        // Se o valor do filtro terminar com "%", use o operador "contains"
+        filterValueWithoutPercent = filterValue.replace(/%/g, "");
+        pointerQuery.contains(fieldName, filterValueWithoutPercent);
+    } else if (filterValue.endsWith("%")) {
+        // Se o valor do filtro começar com "%", use o operador "startsWith"
+        filterValueWithoutPercent = filterValue.replace(/%/g, "");
+        pointerQuery.startsWith(fieldName, filterValueWithoutPercent);
+    } else {
+        // Correspondência exata
+        pointerQuery.equalTo(fieldName, filterValue);
+    }
+
+    const results = await pointerQuery.find({ useMasterKey: true });
+    if (results.length > 0) {
+        query.containedIn(className.toLowerCase(), results);
+    } else {
+        // Se nenhum resultado for encontrado, aplique um filtro que sempre será falso
+        query.equalTo("objectId", "nonexistent");
+    }
+}
+
+
 function maskSensitiveData(req) {
     const sensitiveKeys = ['x-back4app-parseapp-appid', 'x-parse-application-id', 'x-parse-rest-api-key'];
     let safeReq = JSON.parse(JSON.stringify(req));
-    
+
+    // Mascara dados sensíveis nos headers
     Object.keys(safeReq.headers).forEach(key => {
         if (sensitiveKeys.includes(key)) {
             safeReq.headers[key] = '*****************';
         }
     });
 
+    // Mascara o appId no log
     if (safeReq.log && safeReq.log.appId) {
         safeReq.log.appId = '*****************';
     }
