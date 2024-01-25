@@ -3,31 +3,72 @@ unit FMX.Functions;
 interface
 
 uses
-  System.SysUtils,
-  System.Classes,FMX.Controls,
-  FMX.Objects,
+  FMX.Controls,
   FMX.Dialogs,
-  System.Threading,
   FMX.Graphics,
+  FMX.Objects,
+  System.SysUtils,
+  System.Classes,
+  System.JSON,
+  System.NetEncoding,
+  System.Threading,
   System.Types;
 
 procedure LoadImageToImage(AImageControl: TImage; AURL, ACustomFileName, ACustomPath: string;
   AUseCache: Boolean);
+
 procedure LoadImageToShape(AShape: TShape; AURL, ACustomFileName, ACustomPath: string;
   AUseCache: Boolean);
 
 function RemoveKeyFromFileName(const FileName: string): string;
+
 function ResizeImage(const OriginalImage: TBitmap; const NewWidth, NewHeight: Integer): TBitmap; overload;
+
 function ResizeImage(const ImagePath: string; const NewWidth, NewHeight: Integer;
   const DestinationPath: string = ''): string; overload;
+
 function ResizeImageProportional(const ImagePath: string; const MaxSize: Integer;
   const DestinationPath: string = ''): string;
+
+function EncodeFileToJSON(const FilePath: string): TJSONObject;
 
 implementation
 
 uses
   System.IOUtils, System.Generics.Collections, System.Net.URLClient,
   System.Net.HttpClient, System.Net.HttpClientComponent,System.Generics.Defaults;
+
+function EncodeFileToJSON(const FilePath: string): TJSONObject;
+var
+  FileStream: TFileStream;
+  ByteArray: TArray<Byte>;
+  Base64String: string;
+begin
+  // Verifica se FilePath é uma string vazia
+  if FilePath = '' then
+  begin
+    Result := TJSONObject.Create;
+    Result.AddPair('name', '');
+    Exit; // Sai da função imediatamente
+  end;
+
+  if not FileExists(FilePath) then
+    raise Exception.CreateFmt('Arquivo "%s" não encontrado.', [FilePath]);
+
+  FileStream := TFileStream.Create(FilePath, fmOpenRead);
+  try
+    SetLength(ByteArray, FileStream.Size);
+    FileStream.Read(ByteArray[0], FileStream.Size);
+    Base64String := TNetEncoding.Base64.EncodeBytesToString(ByteArray);
+
+    Result := TJSONObject.Create;
+    Result.AddPair('name', ExtractFileName(FilePath));
+    Result.AddPair('base64', Base64String);
+  finally
+    FileStream.Free;
+  end;
+end;
+
 
 procedure LoadImageToImage(AImageControl: TImage; AURL, ACustomFileName, ACustomPath: string;
   AUseCache: Boolean);
@@ -231,6 +272,13 @@ var
   OriginalImage, ResizedImage: TBitmap;
   FileName, DestinationFilePath: string;
 begin
+
+  if ImagePath = '' then
+    Exit;
+
+  if not FileExists(ImagePath) then
+    raise Exception.CreateFmt('Arquivo "%s" não encontrado.', [ImagePath]);
+
   OriginalImage := TBitmap.Create;
   ResizedImage := TBitmap.Create;
 
@@ -261,6 +309,13 @@ var
   ScaleFactor: Single;
   NewWidth, NewHeight: Integer;
 begin
+
+  if ImagePath = '' then
+    Exit;
+
+  if not FileExists(ImagePath) then
+    raise Exception.CreateFmt('Arquivo "%s" não encontrado.', [ImagePath]);
+
   OriginalImage := TBitmap.Create;
   ResizedImage := TBitmap.Create;
 

@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Desktop Menu'
-  ClientHeight = 617
-  ClientWidth = 1075
+  ClientHeight = 611
+  ClientWidth = 1067
   Fill.Kind = Solid
   StyleBook = StyleBook1
   FormFactor.Width = 320
@@ -15,20 +15,20 @@ object Form1: TForm1
     Align = Left
     Fill.Color = claWhite
     Size.Width = 305.000000000000000000
-    Size.Height = 617.000000000000000000
+    Size.Height = 611.000000000000000000
     Size.PlatformDefault = False
     Stroke.Color = claWhite
     object Layout1: TLayout
       Align = Client
       Size.Width = 305.000000000000000000
-      Size.Height = 617.000000000000000000
+      Size.Height = 611.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
       object Rectangle1: TRectangle
         Align = Left
         Fill.Color = claSteelblue
         Size.Width = 33.000000000000000000
-        Size.Height = 617.000000000000000000
+        Size.Height = 611.000000000000000000
         Size.PlatformDefault = False
         Stroke.Color = claSteelblue
       end
@@ -36,7 +36,7 @@ object Form1: TForm1
         Tag = 1
         Align = Contents
         Size.Width = 305.000000000000000000
-        Size.Height = 617.000000000000000000
+        Size.Height = 611.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
         object RoundRect2: TRoundRect
@@ -94,7 +94,7 @@ object Form1: TForm1
               end>
           end
         end
-        object RoundRect3: TRoundRect
+        object rctMenuDashBoard: TRoundRect
           Tag = 2
           Align = Top
           Corners = []
@@ -109,7 +109,7 @@ object Form1: TForm1
           Stroke.Thickness = 0.000000000000000000
           OnClick = rctMenuDiningClick
           OnMouseEnter = RoundRect1MouseLeave
-          object SkSvg3: TSkSvg
+          object imgMenuDashBoard: TSkSvg
             Align = Left
             Margins.Left = 10.000000000000000000
             Margins.Top = 10.000000000000000000
@@ -128,7 +128,7 @@ object Form1: TForm1
               'h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7' +
               'H7v7h2zm-5 0v-3H2v3h2z"/>'#13#10'</svg>'
           end
-          object SkLabel3: TSkLabel
+          object lblMenuDashBoard: TSkLabel
             Align = Client
             Size.Width = 235.000000000000000000
             Size.Height = 42.000000000000000000
@@ -298,7 +298,7 @@ object Form1: TForm1
               end>
           end
         end
-        object RoundRect1: TRoundRect
+        object rctMenuHome: TRoundRect
           Align = Top
           Corners = []
           Fill.Color = claSteelblue
@@ -312,7 +312,7 @@ object Form1: TForm1
           Stroke.Thickness = 0.000000000000000000
           OnClick = rctMenuDiningClick
           OnMouseEnter = RoundRect1MouseLeave
-          object SkSvg7: TSkSvg
+          object imgMenuHome: TSkSvg
             Align = Left
             Margins.Left = 10.000000000000000000
             Margins.Top = 10.000000000000000000
@@ -332,7 +332,7 @@ object Form1: TForm1
               '-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.' +
               '5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>'#13#10'</svg>'
           end
-          object SkLabel7: TSkLabel
+          object lblMenuHome: TSkLabel
             Align = Client
             Size.Width = 235.000000000000000000
             Size.Height = 42.000000000000000000
@@ -365,7 +365,7 @@ object Form1: TForm1
           Fill.Color = claSteelblue
           Margins.Left = 10.000000000000000000
           Size.Width = 295.000000000000000000
-          Size.Height = 139.000000000000000000
+          Size.Height = 133.000000000000000000
           Size.PlatformDefault = False
           Stroke.Color = claSteelblue
           Stroke.Thickness = 0.000000000000000000

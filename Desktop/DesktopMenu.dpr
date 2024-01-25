@@ -6,7 +6,8 @@ uses
   uMain in 'uMain.pas' {Form1},
   FMX.Functions in '..\Units\FMX.Functions.pas',
   FMX.Helpers in '..\Units\FMX.Helpers.pas',
-  AppConfig in '..\Units\AppConfig.pas';
+  AppConfig in '..\Units\AppConfig.pas',
+  Parse.Server in '..\Units\Parse.Server.pas';
 
 {$R *.res}
 

@@ -10,6 +10,9 @@ uses
   FMX.Edit, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo, FMX.ListBox, FMX.EditBox,
   FMX.NumberBox, FMX.Functions, FMX.Effects, FMX.Menus, FMX.ComboEdit;
 
+function SendData(ApplicationID, RestApiKey: WideString; JsonData: TJSONObject;
+  ClouFunction: WideString): WideString; stdcall; external 'ParseServe4App.dll';
+
 type
   TForm1 = class(TForm)
     Rectangle2: TRectangle;
@@ -19,9 +22,9 @@ type
     RoundRect2: TRoundRect;
     SkSvg2: TSkSvg;
     SkLabel2: TSkLabel;
-    RoundRect3: TRoundRect;
-    SkSvg3: TSkSvg;
-    SkLabel3: TSkLabel;
+    rctMenuDashBoard: TRoundRect;
+    imgMenuDashBoard: TSkSvg;
+    lblMenuDashBoard: TSkLabel;
     RoundRect5: TRoundRect;
     SkSvg4: TSkSvg;
     SkLabel4: TSkLabel;
@@ -31,9 +34,9 @@ type
     RoundRect6: TRoundRect;
     SkSvg6: TSkSvg;
     SkLabel6: TSkLabel;
-    RoundRect1: TRoundRect;
-    SkSvg7: TSkSvg;
-    SkLabel7: TSkLabel;
+    rctMenuHome: TRoundRect;
+    imgMenuHome: TSkSvg;
+    lblMenuHome: TSkLabel;
     rctTop: TRoundRect;
     rctBotton: TRoundRect;
     RoundRect7: TRoundRect;
@@ -81,6 +84,8 @@ type
     { Public declarations }
     NewDirectoryPath :String;
     MenuButtons : TObjectList<TRoundRect>;
+    procedure ItemSaveASync(AJsonResponse: string);
+    procedure LoadMenu;
   end;
 
 var
@@ -90,44 +95,72 @@ implementation
 
 {$R *.fmx}
 
-uses FMX.Helpers, System.IOUtils;
+uses FMX.Helpers, System.IOUtils, Parse.Server, AppConfig;
+
+var Parse : TParseServer;
 
 procedure TForm1.Button1Click(Sender: TObject);
+var
+  return, imgResize :string;
 begin
+  var createOrUpdateItem := 'createOrUpdateItem';
 
-  var  ItemJSON := TJSONObject.Create;
-  ItemJSON.AddPair('name', edtName.Text);
-  ItemJSON.AddPair('description', edtDescription.Text);
-  ItemJSON.AddPair('price', TJSONNumber.Create(StrToFloat(edtPrice.Text)));
-  ItemJSON.AddPair('category', cmbCategory.Items[cmbCategory.ItemIndex]);
-  ItemJSON.AddPair('imageURL', ImageURL.hint);
-  ItemJSON.AddPair('availability', TJSONBool.Create(chkAvailability.IsChecked));
-  ItemJSON.AddPair('highlighted', TJSONBool.Create(chkHighlighted.IsChecked));
-  //ItemJSON.AddPair('deletedAt', edtDeletedAt.Text); // Substitua pela data desejada
+
+  imgResize := ResizeImage(ImageURL.hint,100,100, NewDirectoryPath);
+
+  imgResize := ResizeImageProportional(ImageURL.hint,50, NewDirectoryPath);
+
+
+  var ItemJSON := TJSONObject.Create;
+
+  ItemJSON.AddPair('name', edtName.Text)
+    .AddPair('description', edtDescription.Text)
+    .AddPair('price', TJSONNumber.Create(StrToFloat(edtPrice.Text)))
+    .AddPair('category', cmbCategory.Items[cmbCategory.ItemIndex])
+    .AddPair('imageURL', EncodeFileToJSON(imgResize))
+    .AddPair('availability', TJSONBool.Create(chkAvailability.IsChecked))
+    .AddPair('highlighted', TJSONBool.Create(chkHighlighted.IsChecked));
 
   if edtItemId.Text <> '' then
      ItemJSON.AddPair('itemId', TJSONNumber.Create(StrToInt(edtItemId.Text)));
 
-  Memo1.Lines.Text := ItemJSON.Format;
+   Memo1.Lines.Text := ItemJSON.Format;
+
+  {Método para o envio de dados com ParseServe4App.dll}
+  return := SendData(ApplicationId,RestApiKey,ItemJSON,createOrUpdateItem);
+
+  {Método 1 para o envio de dados com Parse.Server.pas}
+  return := Parse.SendData(ItemJSON,createOrUpdateItem);
+
+  {Método 2 para o envio de dados encadeados com Parse.Server.pas}
+
+  {Parse.EndPoint(createOrUpdateItem)
+    .AddPair('name', edtName.Text)
+    .AddPair('description', edtDescription.Text)
+    .AddPair('price', StrToFloat(edtPrice.Text))
+    .AddPair('category', cmbCategory.Items[cmbCategory.ItemIndex])
+    .AddPair('imageURL', ImageURL.hint)
+    .AddPair('availability',chkAvailability.IsChecked)
+    .AddPair('highlighted', chkHighlighted.IsChecked);
+
+  if edtItemId.Text <> '' then
+     Parse.AddPair('itemId',StrToInt(edtItemId.Text));
+  return := Parse.Send();}
+
+
+  Memo1.Lines.Add(return);
+
+  if edtItemId.Text = '' then
+     edtItemId.Text := return.FindJsonValue('itemId');
 
   ItemJSON.Free;
 
 end;
 
+
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-   MenuButtons := TObjectList<TRoundRect>.Create;
-   MenuButtons.Add(rctTop);
-   MenuButtons.Add(RoundRect1);
-   MenuButtons.Add(RoundRect2);
-   MenuButtons.Add(rctMenuDining);
-   MenuButtons.Add(RoundRect3);
-   MenuButtons.Add(RoundRect4);
-   MenuButtons.Add(RoundRect5);
-   MenuButtons.Add(RoundRect6);
-   MenuButtons.Add(RoundRect9);
-   MenuButtons.Add(RoundRect8);
-   MenuButtons.Add(rctBotton);
+   LoadMenu;
 
    TabControl1.GotoVisibleTab(1);
 
@@ -136,6 +169,31 @@ begin
 
    ImageURL.EnableImagePopup;
 
+   Parse := TParseServer.Create;
+   Parse.ApplicationID := ApplicationId;
+   Parse.RestApiKey := RestApiKey;
+
+end;
+
+procedure TForm1.ItemSaveASync(AJsonResponse: string);
+begin
+
+end;
+
+procedure TForm1.LoadMenu;
+begin
+   MenuButtons := TObjectList<TRoundRect>.Create;
+   MenuButtons.Add(rctTop);
+   MenuButtons.Add(rctMenuHome);
+   MenuButtons.Add(RoundRect2);
+   MenuButtons.Add(rctMenuDining);
+   MenuButtons.Add(rctMenuDashBoard);
+   MenuButtons.Add(RoundRect4);
+   MenuButtons.Add(RoundRect5);
+   MenuButtons.Add(RoundRect6);
+   MenuButtons.Add(RoundRect9);
+   MenuButtons.Add(RoundRect8);
+   MenuButtons.Add(rctBotton);
 end;
 
 procedure TForm1.rctMenuDiningClick(Sender: TObject);
