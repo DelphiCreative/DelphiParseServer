@@ -7,7 +7,9 @@ uses
   FMX.Functions in '..\Units\FMX.Functions.pas',
   FMX.Helpers in '..\Units\FMX.Helpers.pas',
   AppConfig in '..\Units\AppConfig.pas',
-  Parse.Server in '..\Units\Parse.Server.pas';
+  Parse.Server in '..\Units\Parse.Server.pas',
+  uItem in 'uItem.pas' {fraItem: TFrame},
+  SQLiteConnection in '..\Units\SQLiteConnection.pas';
 
 {$R *.res}
 

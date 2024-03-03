@@ -668,7 +668,7 @@ object Form1: TForm1
         Position.X = 25.000000000000000000
         Position.Y = 80.000000000000000000
         Size.Width = 709.000000000000000000
-        Size.Height = 506.000000000000000000
+        Size.Height = 264.000000000000000000
         Size.PlatformDefault = False
         Stroke.Color = claWhite
         XRadius = 10.000000000000000000
@@ -684,7 +684,7 @@ object Form1: TForm1
           Align = Client
           Margins.Top = 10.000000000000000000
           Size.Width = 709.000000000000000000
-          Size.Height = 496.000000000000000000
+          Size.Height = 254.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 2
           object lblName: TLabel
@@ -795,33 +795,23 @@ object Form1: TForm1
             Viewport.Width = 433.000000000000000000
             Viewport.Height = 44.000000000000000000
           end
-          object Button1: TButton
-            Position.X = 32.000000000000000000
-            Position.Y = 212.000000000000000000
-            Size.Width = 113.000000000000000000
-            Size.Height = 32.000000000000000000
-            Size.PlatformDefault = False
-            StyleLookup = 'listitembutton'
-            TabOrder = 11
-            Text = 'Salvar altera'#231#245'es'
-            OnClick = Button1Click
-          end
           object Memo1: TMemo
             Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
             DataDetectorTypes = []
-            Position.X = 32.000000000000000000
-            Position.Y = 264.000000000000000000
-            Size.Width = 649.000000000000000000
-            Size.Height = 175.000000000000000000
+            StyledSettings = [Size, Style, FontColor]
+            TextSettings.Font.Family = 'Consolas'
+            Position.Y = 270.000000000000000000
+            Size.Width = 697.000000000000000000
+            Size.Height = 219.000000000000000000
             Size.PlatformDefault = False
-            TabOrder = 13
-            Viewport.Width = 645.000000000000000000
-            Viewport.Height = 171.000000000000000000
+            TabOrder = 12
+            Viewport.Width = 693.000000000000000000
+            Viewport.Height = 215.000000000000000000
           end
           object edtPrice: TNumberBox
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             StyleLookup = 'EditstyleWithoutBorder'
-            TabOrder = 14
+            TabOrder = 13
             Cursor = crIBeam
             ValueType = Float
             KeyboardType = NumbersAndPunctuation
@@ -948,10 +938,44 @@ object Form1: TForm1
               Size.PlatformDefault = False
             end
           end
+          object Rectangle3: TRectangle
+            Fill.Color = claSteelblue
+            Position.X = 32.000000000000000000
+            Position.Y = 213.000000000000000000
+            Size.Width = 129.000000000000000000
+            Size.Height = 33.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Color = claSteelblue
+            XRadius = 10.000000000000000000
+            YRadius = 10.000000000000000000
+            object Label2: TLabel
+              Align = Client
+              StyledSettings = [Family, Style]
+              Margins.Left = 10.000000000000000000
+              Margins.Right = 10.000000000000000000
+              Size.Width = 109.000000000000000000
+              Size.Height = 33.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.FontColor = claWhite
+              TextSettings.HorzAlign = Center
+              Text = 'Salvar Altera'#231#245'es'
+              TabOrder = 0
+            end
+            object SpeedButton1: TSpeedButton
+              Align = Contents
+              Margins.Left = 10.000000000000000000
+              Margins.Right = 10.000000000000000000
+              Size.Width = 109.000000000000000000
+              Size.Height = 33.000000000000000000
+              Size.PlatformDefault = False
+              OnClick = SpeedButton1Click
+            end
+          end
         end
       end
       object Label1: TLabel
         StyledSettings = [Style]
+        HitTest = True
         Position.X = 25.000000000000000000
         Position.Y = 55.000000000000000000
         Size.Width = 208.000000000000000000
@@ -962,6 +986,7 @@ object Form1: TForm1
         TextSettings.FontColor = claSlategray
         Text = 'Cadastro de Item:'
         TabOrder = 13
+        OnClick = Label1Click
       end
     end
     object TabItem2: TTabItem

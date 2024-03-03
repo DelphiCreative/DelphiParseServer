@@ -1,0 +1,47 @@
+object fraItem: TfraItem
+  Size.Width = 995.000000000000000000
+  Size.Height = 97.000000000000000000
+  Size.PlatformDefault = False
+  object Rectangle1: TRectangle
+    Fill.Color = claWhite
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 979.000000000000000000
+    Size.Height = 69.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Thickness = 0.000000000000000000
+    object Layout1: TLayout
+      Align = Left
+      Size.Width = 81.000000000000000000
+      Size.Height = 69.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+    end
+    object Layout2: TLayout
+      Align = Left
+      Position.X = 81.000000000000000000
+      Size.Width = 336.000000000000000000
+      Size.Height = 69.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object Text1: TText
+        Align = Top
+        Size.Width = 336.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Mussarela'
+        TextSettings.HorzAlign = Leading
+      end
+      object Text2: TText
+        Align = Client
+        Size.Width = 336.000000000000000000
+        Size.Height = 37.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Mussarela, tomate, azeitona e or'#233'gano'
+        TextSettings.FontColor = xFF4B4A4A
+        TextSettings.HorzAlign = Leading
+        TextSettings.VertAlign = Leading
+      end
+    end
+  end
+end

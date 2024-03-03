@@ -195,6 +195,12 @@
         <DCCReference Include="..\Units\FMX.Helpers.pas"/>
         <DCCReference Include="..\Units\AppConfig.pas"/>
         <DCCReference Include="..\Units\Parse.Server.pas"/>
+        <DCCReference Include="uItem.pas">
+            <Form>fraItem</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\Units\SQLiteConnection.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

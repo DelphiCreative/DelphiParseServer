@@ -8,7 +8,11 @@ uses
   FMX.Layouts, Skia, FMX.Skia, System.Generics.Collections, System.JSON,
   FMX.Controls.Presentation, FMX.MultiView, FMX.TabControl, FMX.StdCtrls,
   FMX.Edit, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo, FMX.ListBox, FMX.EditBox,
-  FMX.NumberBox, FMX.Functions, FMX.Effects, FMX.Menus, FMX.ComboEdit;
+  FMX.NumberBox, FMX.Functions, FMX.Effects, FMX.Menus, FMX.ComboEdit,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
 
 function SendData(ApplicationID, RestApiKey: WideString; JsonData: TJSONObject;
   ClouFunction: WideString): WideString; stdcall; external 'ParseServe4App.dll';
@@ -66,7 +70,6 @@ type
     edtItemId: TEdit;
     edtDescription: TMemo;
     ImageURL: TImage;
-    Button1: TButton;
     Memo1: TMemo;
     edtPrice: TNumberBox;
     Str: TRectangle;
@@ -74,18 +77,25 @@ type
     ShadowEffect1: TShadowEffect;
     Image3: TImage;
     Label1: TLabel;
+    Rectangle3: TRectangle;
+    Label2: TLabel;
+    SpeedButton1: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure RoundRect1MouseLeave(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
     procedure rctMenuDiningClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure Label1Click(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
-    NewDirectoryPath :String;
+    PathImg :String;
+    PathData :String;
     MenuButtons : TObjectList<TRoundRect>;
     procedure ItemSaveASync(AJsonResponse: string);
     procedure LoadMenu;
+    procedure Database;
+    procedure SaveItemToLocalDatabase(AJson :TJSONObject);
   end;
 
 var
@@ -95,68 +105,33 @@ implementation
 
 {$R *.fmx}
 
-uses FMX.Helpers, System.IOUtils, Parse.Server, AppConfig;
+uses FMX.Helpers, System.IOUtils, Parse.Server, AppConfig, SQLiteConnection;
 
-var Parse : TParseServer;
-
-procedure TForm1.Button1Click(Sender: TObject);
 var
-  return, imgResize :string;
+  Parse : TParseServer;
+  SQLiteConnection : TSQLiteConnection;
+
+procedure TForm1.Database;
 begin
-  var createOrUpdateItem := 'createOrUpdateItem';
 
+  SQLiteConnection := TSQLiteConnection.Create;
 
-  imgResize := ResizeImage(ImageURL.hint,100,100, NewDirectoryPath);
+  try
 
-  imgResize := ResizeImageProportional(ImageURL.hint,50, NewDirectoryPath);
+    SQLiteConnection.AddScript(
+        'CREATE TABLE Item (' +
+        '    id INTEGER PRIMARY KEY AUTOINCREMENT,' +
+        '    json_data TEXT' +
+        ');'
+      );
 
+    SQLiteConnection.DatabaseName := TPath.Combine(PathData, 'parse.db');
+    SQLiteConnection.Open;
 
-  var ItemJSON := TJSONObject.Create;
-
-  ItemJSON.AddPair('name', edtName.Text)
-    .AddPair('description', edtDescription.Text)
-    .AddPair('price', TJSONNumber.Create(StrToFloat(edtPrice.Text)))
-    .AddPair('category', cmbCategory.Items[cmbCategory.ItemIndex])
-    .AddPair('imageURL', EncodeFileToJSON(imgResize))
-    .AddPair('availability', TJSONBool.Create(chkAvailability.IsChecked))
-    .AddPair('highlighted', TJSONBool.Create(chkHighlighted.IsChecked));
-
-  if edtItemId.Text <> '' then
-     ItemJSON.AddPair('itemId', TJSONNumber.Create(StrToInt(edtItemId.Text)));
-
-   Memo1.Lines.Text := ItemJSON.Format;
-
-  {Método para o envio de dados com ParseServe4App.dll}
-  return := SendData(ApplicationId,RestApiKey,ItemJSON,createOrUpdateItem);
-
-  {Método 1 para o envio de dados com Parse.Server.pas}
-  return := Parse.SendData(ItemJSON,createOrUpdateItem);
-
-  {Método 2 para o envio de dados encadeados com Parse.Server.pas}
-
-  {Parse.EndPoint(createOrUpdateItem)
-    .AddPair('name', edtName.Text)
-    .AddPair('description', edtDescription.Text)
-    .AddPair('price', StrToFloat(edtPrice.Text))
-    .AddPair('category', cmbCategory.Items[cmbCategory.ItemIndex])
-    .AddPair('imageURL', ImageURL.hint)
-    .AddPair('availability',chkAvailability.IsChecked)
-    .AddPair('highlighted', chkHighlighted.IsChecked);
-
-  if edtItemId.Text <> '' then
-     Parse.AddPair('itemId',StrToInt(edtItemId.Text));
-  return := Parse.Send();}
-
-
-  Memo1.Lines.Add(return);
-
-  if edtItemId.Text = '' then
-     edtItemId.Text := return.FindJsonValue('itemId');
-
-  ItemJSON.Free;
-
+  finally
+    SQLiteConnection.Free;
+  end;
 end;
-
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
@@ -164,8 +139,13 @@ begin
 
    TabControl1.GotoVisibleTab(1);
 
-   NewDirectoryPath := TPath.Combine(GetCurrentDir, 'Img');
-   ForceDirectories(NewDirectoryPath);
+   PathImg := TPath.Combine(GetCurrentDir, 'Img');
+   ForceDirectories(PathImg);
+
+   PathData := TPath.Combine(GetCurrentDir, 'Data');
+   ForceDirectories(PathData);
+
+   Database;
 
    ImageURL.EnableImagePopup;
 
@@ -177,6 +157,16 @@ end;
 
 procedure TForm1.ItemSaveASync(AJsonResponse: string);
 begin
+
+end;
+
+procedure TForm1.Label1Click(Sender: TObject);
+begin
+  var getItemsList := 'getItemsList';
+  Memo1.Lines.Add(
+  Parse.EndPoint(getItemsList)
+    .AddPair('category', 'PIZZ%')
+    .Send);
 
 end;
 
@@ -256,6 +246,108 @@ begin
             MenuButtons[j + 1].Corners := [TCorner.TopRight];
       end;
    end;
+end;
+
+procedure TForm1.SaveItemToLocalDatabase(AJson: TJSONObject);
+var
+  FDQuery: TFDQuery;
+  ItemJSON: TJSONObject;
+  JSONString: string;
+  ItemID: string;
+begin
+  JSONString := AJson.ToString;
+  ItemID := JSONString.FindJsonValue('itemId');
+
+  FDQuery := TFDQuery.Create(nil);
+  FDQuery.Connection := SQLiteConnection.Connection;
+
+  try
+    // Verifique se o registro com o ID já existe na tabela
+    FDQuery.SQL.Text := 'SELECT COUNT(1) FROM Item WHERE id = :item_id';
+    FDQuery.ParamByName('item_id').AsString := ItemID;
+    FDQuery.Open;
+
+    if FDQuery.Fields[0].AsInteger > 0 then
+    begin
+      // Se o registro existir, faça a atualização
+      FDQuery.SQL.Text := 'UPDATE Item SET json_data = :json_data WHERE id = :item_id';
+    end
+    else
+    begin
+      // Se o registro não existir, faça a inserção
+      FDQuery.SQL.Text := 'INSERT INTO Item (id, json_data) VALUES (:item_id, :json_data)';
+      FDQuery.ParamByName('item_id').AsString := ItemID;
+    end;
+
+    // Configure os parâmetros comuns para inserção/atualização
+    FDQuery.ParamByName('json_data').AsString := JSONString;
+    FDQuery.ExecSQL;
+
+  finally
+    FDQuery.Free;
+  end;
+
+end;
+
+procedure TForm1.SpeedButton1Click(Sender: TObject);
+var
+  return, imgResize :string;
+begin
+
+  var createOrUpdateItem := 'createOrUpdateItem';
+
+  imgResize := ResizeImage(ImageURL.hint,100,100, PathImg);
+
+  //imgResize := ResizeImageProportional(ImageURL.hint,50, PathImg);
+
+  var ItemJSON := TJSONObject.Create;
+
+  ItemJSON.AddPair('name', edtName.Text)
+    .AddPair('description', edtDescription.Text)
+    .AddPair('price', TJSONNumber.Create(StrToFloat(edtPrice.Text)))
+    .AddPair('category', cmbCategory.Items[cmbCategory.ItemIndex])
+    .AddPair('imageURL', EncodeFileToJSON(imgResize))
+    .AddPair('availability', TJSONBool.Create(chkAvailability.IsChecked))
+    .AddPair('highlighted', TJSONBool.Create(chkHighlighted.IsChecked));
+
+  if edtItemId.Text <> '' then
+     ItemJSON.AddPair('itemId', TJSONNumber.Create(StrToInt(edtItemId.Text)));
+
+   Memo1.Lines.Text := ItemJSON.Format;
+
+  {Método para o envio de dados com ParseServe4App.dll}
+  //return := SendData(ApplicationId,RestApiKey,ItemJSON,createOrUpdateItem);
+
+  {Método 1 para o envio de dados com Parse.Server.pas}
+  return := Parse.SendData(ItemJSON,createOrUpdateItem);
+
+  {Método 2 para o envio de dados encadeados com Parse.Server.pas}
+
+  {Parse.EndPoint(createOrUpdateItem)
+    .AddPair('name', edtName.Text)
+    .AddPair('description', edtDescription.Text)
+    .AddPair('price', StrToFloat(edtPrice.Text))
+    .AddPair('category', cmbCategory.Items[cmbCategory.ItemIndex])
+    .AddPair('imageURL', ImageURL.hint)
+    .AddPair('availability',chkAvailability.IsChecked)
+    .AddPair('highlighted', chkHighlighted.IsChecked);
+
+  if edtItemId.Text <> '' then
+     Parse.AddPair('itemId',StrToInt(edtItemId.Text));
+  return := Parse.Send();}
+
+
+  Memo1.Lines.Add(return);
+
+  if edtItemId.Text = '' then begin
+     edtItemId.Text := return.FindJsonValue('itemId');
+     ItemJSON.AddPair('itemId', TJSONNumber.Create(StrToInt(edtItemId.Text)));
+  end;
+
+  SaveItemToLocalDatabase(ItemJSON);
+
+  ItemJSON.Free;
+
 end;
 
 end.

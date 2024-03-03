@@ -88,7 +88,6 @@ end;
 function TStringHelper.FindJsonValue(const AKey: string): string;
 var
   StartPos, EndPos: Integer;
-  KeyStartPos, KeyEndPos: Integer;
   jsonObject: TJSONObject;
   resultObject: TJSONObject;
 begin
@@ -99,17 +98,27 @@ begin
 
     if Assigned(jsonObject) then
     begin
-      resultObject := jsonObject.GetValue('result') as TJSONObject;
-      if Assigned(resultObject) then
+      // Verifique se a chave 'result' está presente no objeto JSON principal
+      if jsonObject.TryGetValue('result', resultObject) then
       begin
-        Result := resultObject.GetValue(AKey).Value;
+        // Agora, tente obter o valor da chave desejada dentro do objeto 'result'
+        if Assigned(resultObject) then
+        begin
+          Result := resultObject.GetValue(AKey).Value;
+        end;
+      end
+      else
+      begin
+        // Se a chave 'result' não estiver presente, tente obter diretamente a chave desejada
+        if jsonObject.TryGetValue(AKey, Result) then
+          Exit;
       end;
     end;
   finally
     jsonObject.Free;
   end;
-
 end;
+
 
 function TStringHelper.JsonFormat :string;
 var
