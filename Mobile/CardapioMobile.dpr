@@ -5,7 +5,10 @@ uses
   FMX.Forms,
   FMX.Skia,
   uMain in 'uMain.pas' {frmMain},
-  uFraItem in 'uFraItem.pas' {fraItem: TFrame};
+  uFraItem in 'uFraItem.pas' {fraItem: TFrame},
+  uTestData in 'uTestData.pas',
+  FMX.Functions in '..\Units\FMX.Functions.pas',
+  uItemData in 'uItemData.pas';
 
 {$R *.res}
 

@@ -70,7 +70,7 @@ object fraItem: TfraItem
         Size.Height = 76.500000000000000000
         Size.PlatformDefault = False
         TabOrder = 2
-        object Rectangle3: TRectangle
+        object rctImageURL: TRectangle
           Align = Left
           ClipChildren = True
           ClipParent = True

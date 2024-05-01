@@ -25,7 +25,7 @@ implementation
 
 {$R *.fmx}
 
-uses uFraItem;
+uses uFraItem, uItemData, uTestData;
 
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
@@ -36,11 +36,16 @@ procedure TfrmMain.LoadItems;
 var
    FraItem : TfraItem;
    I: Integer;
+   Items :TArray<TItem>;
+   Item : TItem;
 begin
-   for I := 0 to 10 do
+
+   Items := ParseItems(JsonItem);
+
+   for item in Items do
    begin
-      FraItem := TfraItem.Create(Self);
-      FraItem.Name := 'fra'+ IntToStr(I);
+      FraItem := TfraItem.Create(Self, Item);
+      FraItem.Name := 'fra'+ IntToStr(Item.itemId);
       VertScrollBox1.AddObject(FraItem);
    end;
 end;
