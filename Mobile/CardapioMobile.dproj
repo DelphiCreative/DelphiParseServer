@@ -200,6 +200,7 @@
         <DCCReference Include="uTestData.pas"/>
         <DCCReference Include="..\Units\FMX.Functions.pas"/>
         <DCCReference Include="uItemData.pas"/>
+        <DCCReference Include="FMX.Helpers.Utils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

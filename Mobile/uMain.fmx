@@ -3,19 +3,93 @@ object frmMain: TfrmMain
   Top = 0
   Caption = 'Cardapio Back4app x Parse Server'
   ClientHeight = 610
-  ClientWidth = 354
+  ClientWidth = 367
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   DesignerMasterStyle = 0
-  object VertScrollBox1: TVertScrollBox
+  object vsbItems: TVertScrollBox
     Align = Client
-    Size.Width = 354.000000000000000000
-    Size.Height = 610.000000000000000000
+    Size.Width = 367.000000000000000000
+    Size.Height = 343.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
-    Viewport.Width = 354.000000000000000000
-    Viewport.Height = 610.000000000000000000
+    Viewport.Width = 367.000000000000000000
+    Viewport.Height = 343.000000000000000000
+  end
+  object rcTop: TRectangle
+    Align = Top
+    Fill.Color = claWhite
+    Size.Width = 367.000000000000000000
+    Size.Height = 67.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Color = claWhite
+    object ShadowEffect1: TShadowEffect
+      Distance = 3.000000000000000000
+      Direction = 45.000000000000000000
+      Softness = 0.300000011920929000
+      Opacity = 0.100000001490116100
+      ShadowColor = claBlack
+    end
+    object rctSearchItem: TRectangle
+      Align = Top
+      Fill.Color = xFFF2F2F2
+      Margins.Left = 15.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 15.000000000000000000
+      Position.X = 15.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 337.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = claNull
+      XRadius = 15.000000000000000000
+      YRadius = 15.000000000000000000
+      object edtSearchItem: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        StyleLookup = 'transparentedit'
+        TabOrder = 0
+        TextSettings.Font.Size = 14.000000000000000000
+        Margins.Left = 2.000000000000000000
+        Margins.Right = 25.000000000000000000
+        Size.Width = 251.000000000000000000
+        Size.Height = 49.000000000000000000
+        Size.PlatformDefault = False
+        TextPrompt = 'O que voc'#234' est'#225' procurando hoje?'
+        StyledSettings = [Family, Style, FontColor]
+        OnChangeTracking = edtSearchItemChangeTracking
+        object SearchEditButton1: TSearchEditButton
+          CanFocus = False
+          Cursor = crArrow
+          Size.Width = 32.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Visible = False
+        end
+      end
+      object SpeedButton1: TSpeedButton
+        Align = Left
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 1.000000000000000000
+        Position.X = 10.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 49.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'searchtoolbutton'
+        Text = 'SpeedButton1'
+      end
+    end
+  end
+  object TabControl1: TTabControl
+    Align = Top
+    Position.Y = 67.000000000000000000
+    Size.Width = 367.000000000000000000
+    Size.Height = 200.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    TabPosition = None
   end
 end

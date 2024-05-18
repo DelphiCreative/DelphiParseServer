@@ -8,7 +8,8 @@ uses
   uFraItem in 'uFraItem.pas' {fraItem: TFrame},
   uTestData in 'uTestData.pas',
   FMX.Functions in '..\Units\FMX.Functions.pas',
-  uItemData in 'uItemData.pas';
+  uItemData in 'uItemData.pas',
+  FMX.Helpers.Utils in 'FMX.Helpers.Utils.pas';
 
 {$R *.res}
 

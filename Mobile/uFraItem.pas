@@ -26,21 +26,27 @@ type
     { Private declarations }
   public
     { Public declarations }
-    constructor Create(AOwner: TComponent; Item : TItem); overload;
+    constructor Create(AOwner: TComponent; AItem : TItem); overload;
   end;
 
 implementation
 
 {$R *.fmx}
 
+uses FMX.Functions;
+
 { TfraItem }
-constructor TfraItem.Create(AOwner: TComponent; Item: TItem);
+constructor TfraItem.Create(AOwner: TComponent; AItem: TItem);
 begin
    Inherited Create(AOwner);
-   txtCategory.Text := Item.category;
-   txtName.Text := Item.name;
-   txtPrice.Text := Item.price;
-   txtDescription.Text := Item.description;
+   txtCategory.Text := AItem.category;
+   txtName.Text := AItem.name;
+   txtPrice.Text := AItem.price;
+   txtDescription.Text := AItem.description;
+   LoadImageToShape(rctImageURL,AItem.imageUrl, '','', true);
+
+   Self.TagString := AItem.name + ' ' + AItem.description + ' ' + AItem.category;
+
 end;
 
 end.

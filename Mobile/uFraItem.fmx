@@ -1,11 +1,13 @@
 object fraItem: TfraItem
   Align = Top
+  HitTest = False
   Size.Width = 320.000000000000000000
   Size.Height = 201.000000000000000000
   Size.PlatformDefault = False
   object rctBackground: TRectangle
     Align = Top
     Fill.Color = claWhite
+    HitTest = False
     Margins.Left = 10.000000000000000000
     Margins.Top = 10.000000000000000000
     Margins.Right = 10.000000000000000000
@@ -26,6 +28,7 @@ object fraItem: TfraItem
     end
     object GridPanelLayout1: TGridPanelLayout
       Align = Client
+      HitTest = False
       Margins.Left = 20.000000000000000000
       Margins.Top = 20.000000000000000000
       Margins.Right = 10.000000000000000000
@@ -5433,6 +5436,7 @@ object fraItem: TfraItem
             0049454E44AE426082}
           Fill.Bitmap.WrapMode = TileStretch
           Fill.Kind = Bitmap
+          HitTest = False
           Size.Width = 81.000000000000000000
           Size.Height = 76.500000000000000000
           Size.PlatformDefault = False
@@ -5457,6 +5461,7 @@ object fraItem: TfraItem
           TabOrder = 1
           object txtCategory: TText
             Align = Top
+            HitTest = False
             Size.Width = 184.000000000000000000
             Size.Height = 31.000000000000000000
             Size.PlatformDefault = False
@@ -5468,6 +5473,7 @@ object fraItem: TfraItem
           end
           object txtName: TText
             Align = Client
+            HitTest = False
             Size.Width = 184.000000000000000000
             Size.Height = 45.500000000000000000
             Size.PlatformDefault = False
@@ -5488,6 +5494,7 @@ object fraItem: TfraItem
         TabOrder = 1
         object txtDescription: TText
           Align = Client
+          HitTest = False
           Margins.Top = 10.000000000000000000
           Size.Width = 270.000000000000000000
           Size.Height = 33.714286804199220000
@@ -5508,6 +5515,7 @@ object fraItem: TfraItem
         TabOrder = 0
         object txtPrice: TText
           Align = Left
+          HitTest = False
           Size.Width = 97.000000000000000000
           Size.Height = 32.785713195800780000
           Size.PlatformDefault = False

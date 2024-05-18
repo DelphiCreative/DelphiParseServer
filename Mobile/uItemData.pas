@@ -3,7 +3,7 @@ unit uItemData;
 interface
 
 uses
-  System.JSON, System.SysUtils, System.Generics.Collections;
+  System.JSON, System.SysUtils, System.Generics.Collections, System.Generics.Defaults;
 
 type
   TItem = record
@@ -18,47 +18,116 @@ type
   end;
 
 function ParseItems(const AJsonStr: string): TArray<TItem>;
+function SortItemsByField(var AItems: TArray<TItem>; const AFieldName: string): TArray<TItem>;
+function FilterItemsByField(const AItems: TArray<TItem>; const AFieldName: string; const AFilterValue: string): TArray<TItem>;
 
 implementation
-
 function ParseItems(const AJsonStr: string): TArray<TItem>;
 var
-  jsonObject: TJSONObject;
-  itemsArray: TJSONArray;
+  jsonValue: TJSONValue;
+  jsonArray: TJSONArray;
+  jsonItem: TJSONValue;
+  item: TItem;
   i: Integer;
 begin
   Result := nil;
 
   try
-    jsonObject := TJSONObject.ParseJSONValue(AJsonStr) as TJSONObject;
+    // Obter o valor JSON raiz (um array neste caso)
+    jsonValue := TJSONObject.ParseJSONValue(AJsonStr);
 
-    if Assigned(jsonObject) then
+    if Assigned(jsonValue) and (jsonValue is TJSONArray) then
     begin
-      itemsArray := jsonObject.Values['result'] as TJSONArray;
+      jsonArray := TJSONArray(jsonValue);
 
-      if Assigned(itemsArray) then
+      // Inicializar o array de itens com o tamanho do array JSON
+      SetLength(Result, jsonArray.Count);
+
+      // Percorrer o array JSON e extrair os dados diretamente
+      for i := 0 to jsonArray.Count - 1 do
       begin
-        SetLength(Result, itemsArray.Count);
+        jsonItem := jsonArray.Items[i];
 
-        for i := 0 to itemsArray.Count - 1 do
+        if Assigned(jsonItem) and (jsonItem is TJSONObject) then
         begin
-          jsonObject := itemsArray.Items[i] as TJSONObject;
-          if Assigned(jsonObject) then
-          begin
-            Result[i].itemId := jsonObject.GetValue<Integer>('itemId');
-            Result[i].name := jsonObject.GetValue<string>('name');
-            Result[i].description := jsonObject.GetValue<string>('description');
-            Result[i].price := jsonObject.GetValue<string>('price');
-            Result[i].availability := jsonObject.GetValue<Boolean>('availability');
-            Result[i].highlighted := jsonObject.GetValue<Boolean>('highlighted');
-            Result[i].category := jsonObject.GetValue<string>('category');
-            Result[i].imageUrl := jsonObject.GetValue<string>('imageUrl');
-          end;
+          // Preencher o item diretamente a partir do objeto JSON
+          item.itemId := jsonItem.GetValue<Integer>('itemId');
+          item.name := jsonItem.GetValue<string>('name');
+          item.description := jsonItem.GetValue<string>('description');
+          item.price := jsonItem.GetValue<string>('price');
+          item.availability := jsonItem.GetValue<Boolean>('availability');
+          item.highlighted := jsonItem.GetValue<Boolean>('highlighted');
+          item.category := jsonItem.GetValue<string>('category');
+          item.imageUrl := jsonItem.GetValue<string>('imageUrl');
+
+          // Atribuir o item ao array de resultado
+          Result[i] := item;
         end;
       end;
     end;
-  except
-    // Trate exceções, se necessário
+  finally
+    // Liberar o valor JSON raiz (não é necessário liberar os itens individuais)
+    jsonValue.Free;
+  end;
+end;
+
+function SortItemsByField(var AItems: TArray<TItem>; const AFieldName: string): TArray<TItem>;
+var
+  Comparer: IComparer<TItem>;
+begin
+  if AFieldName = 'name' then
+    Comparer := TComparer<TItem>.Construct(
+      function(const Left, Right: TItem): Integer
+      begin
+        Result := CompareText(Left.name, Right.name);
+      end
+    )
+  else if AFieldName = 'category' then
+    Comparer := TComparer<TItem>.Construct(
+      function(const Left, Right: TItem): Integer
+      begin
+        Result := CompareText(Left.category, Right.category);
+      end
+    )
+  else if AFieldName = 'price' then
+    Comparer := TComparer<TItem>.Construct(
+      function(const Left, Right: TItem): Integer
+      begin
+        // Implemente a lógica de comparação para o campo 'price' (convertendo para número, etc.)
+        // Exemplo:
+        // Result := CompareValue(StrToFloat(Left.price), StrToFloat(Right.price));
+        // ou
+        // Result := CompareText(Left.price, Right.price);
+      end
+    );
+    // Adicione outras condições para outros campos, se necessário...
+
+  if Assigned(Comparer) then
+    TArray.Sort<TItem>(AItems, Comparer);
+
+  Result := AItems;
+end;
+
+function FilterItemsByField(const AItems: TArray<TItem>; const AFieldName: string; const AFilterValue: string): TArray<TItem>;
+var
+  Item: TItem;
+begin
+  Result := [];
+  for Item in AItems do
+  begin
+    if AFieldName = 'category' then
+    begin
+      if SameText(Item.category, AFilterValue) then
+        Result := Result + [Item];
+    end
+    else if AFieldName = 'availability' then
+    begin
+      if (AFilterValue = 'true') and Item.availability then
+        Result := Result + [Item]
+      else if (AFilterValue = 'false') and not Item.availability then
+        Result := Result + [Item];
+    end;
+    // Adicione outras condições para outros campos, se necessário...
   end;
 end;
 

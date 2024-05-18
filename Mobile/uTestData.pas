@@ -10,47 +10,47 @@ function JsonItem: String;
 begin
 
  Result :=
-'{ '+
-'    "result": [ '+
+
+' [ '+
 '        { '+
 '            "itemId": 1, '+
-'            "name": "Pizza Marguerita", '+
+'            "name": "Marguerita", '+
 '            "description": "Mussarela, molho de tomate, manjericão fresco", '+
 '            "price": "R$ 35,00", '+
 '            "availability": true, '+
 '            "highlighted": true, '+
 '            "category": "PIZZAS", '+
-'            "imageUrl": null '+
+'            "imageUrl": "https://parsefiles.back4app.com/YUPE8wtSn5blZ8vtygC13KiKqRaxYgCuLA9xlm35/b622e171244bcf011f831b811b7ee35b_marguerita.jpg" '+
 '        }, '+
 '        { '+
 '            "itemId": 2, '+
-'            "name": "Pizza Quatro Queijos", '+
+'            "name": "Quatro Queijos", '+
 '            "description": "Mussarela, provolone, gorgonzola, parmesão", '+
 '            "price": "R$ 40,00", '+
 '            "availability": true, '+
 '            "highlighted": false, '+
 '            "category": "PIZZAS", '+
-'            "imageUrl": null '+
+'            "imageUrl": "https://parsefiles.back4app.com/YUPE8wtSn5blZ8vtygC13KiKqRaxYgCuLA9xlm35/7c0ff8e3772c6048c9641a2036e31a04_qautro-queijos.jpg" '+
 '        }, '+
 '        { '+
 '            "itemId": 3, '+
-'            "name": "Pizza Calabresa", '+
+'            "name": "Calabresa", '+
 '            "description": "Mussarela, calabresa, cebola, azeitonas", '+
 '            "price": "R$ 38,00", '+
 '            "availability": true, '+
 '            "highlighted": false, '+
 '            "category": "PIZZAS", '+
-'            "imageUrl": null '+
+'            "imageUrl": "https://parsefiles.back4app.com/YUPE8wtSn5blZ8vtygC13KiKqRaxYgCuLA9xlm35/db6f8519296a37b1b2ad6faf3ca45d22_calabresa.jpg" '+
 '        }, '+
 '        { '+
 '            "itemId": 4, '+
-'            "name": "Pizza Portuguesa", '+
+'            "name": "Portuguesa", '+
 '            "description": "Mussarela, presunto, ovos, cebola, ervilha, azeitonas", '+
 '            "price": "R$ 42,00", '+
 '            "availability": true, '+
 '            "highlighted": false, '+
 '            "category": "PIZZAS", '+
-'            "imageUrl": null '+
+'            "imageUrl": "https://parsefiles.back4app.com/YUPE8wtSn5blZ8vtygC13KiKqRaxYgCuLA9xlm35/54c4a86e4bffa9ce523e8e49a5953c5c_portuguesa.jpg" '+
 '        }, '+
 '        { '+
 '            "itemId": 5, '+
@@ -70,11 +70,11 @@ begin
 '            "availability": true, '+
 '            "highlighted": true, '+
 '            "category": "LANCHES", '+
-'            "imageUrl": null '+
+'            "imageUrl": "https://parsefiles.back4app.com/YUPE8wtSn5blZ8vtygC13KiKqRaxYgCuLA9xlm35/365063fa6f3aee98c08261760d66ab80_x-tudo.jpg" '+
 '        }, '+
 '        { '+
 '            "itemId": 7, '+
-'            "name": "Porção de Batata Frita", '+
+'            "name": "Batata Frita", '+
 '            "description": "Batata frita crocante", '+
 '            "price": "R$ 25,00", '+
 '            "availability": true, '+
@@ -84,37 +84,37 @@ begin
 '        }, '+
 '        { '+
 '            "itemId": 8, '+
-'            "name": "Porção de Frango a Passarinho", '+
+'            "name": "Frango a Passarinho", '+
 '            "description": "Pedacinhos de frango fritos", '+
 '            "price": "R$ 30,00", '+
 '            "availability": true, '+
-'            "highlighted": false, '+
+'            "highlighted": true, '+
 '            "category": "PORÇÕES", '+
-'            "imageUrl": null '+
+'            "imageUrl": "https://parsefiles.back4app.com/YUPE8wtSn5blZ8vtygC13KiKqRaxYgCuLA9xlm35/bdf010211e402af647860a09641a033a_frango-a-passarinho.jpg" '+
 '        }, '+
 '        { '+
 '            "itemId": 9, '+
-'            "name": "Porção de Polenta Frita", '+
+'            "name": "Polenta Frita", '+
 '            "description": "Polenta frita crocante", '+
 '            "price": "R$ 28,00", '+
 '            "availability": true, '+
 '            "highlighted": false, '+
 '            "category": "PORÇÕES", '+
-'            "imageUrl": null '+
+'            "imageUrl": "https://parsefiles.back4app.com/YUPE8wtSn5blZ8vtygC13KiKqRaxYgCuLA9xlm35/6a65465bdceb4c03f76067c391904370_polenta.jpg" '+
 '        }, '+
 '        { '+
 '            "itemId": 10, '+
-'            "name": "Porção de Onion Rings", '+
+'            "name": "Onion Rings", '+
 '            "description": "Anéis de cebola empanados e fritos", '+
 '            "price": "R$ 22,00", '+
 '            "availability": true, '+
 '            "highlighted": false, '+
 '            "category": "PORÇÕES", '+
-'            "imageUrl": null '+
+'            "imageUrl": "https://parsefiles.back4app.com/YUPE8wtSn5blZ8vtygC13KiKqRaxYgCuLA9xlm35/2687627d818aabebab64f724f682ae99_aneis-de-cebola.jpg" '+
 '        } '+
-'    ] '+
-'} ';
+'    ] ';
 
 end;
+
 end.
 
